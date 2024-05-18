@@ -1,0 +1,26 @@
+.top-menu {
+    height: 100px;
+    width: 65vw;
+    margin: 0 auto;
+}
+
+.top-menu div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-menu .menu-content {
+    min-width: 150px;
+    font-size: 1.5em;
+}
+
+.top-menu .logo {
+    width: 250px;
+    justify-content: center;
+    margin-right: 75px;
+}
+
+.menu-right {
+    margin-left: auto;
+}
