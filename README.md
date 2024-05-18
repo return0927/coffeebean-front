@@ -1,5 +1,8 @@
-# React + Vite
+# 데이터베이스 팀플
 
+React.js, Vite.js 를 이용한 원두 거래 플랫폼 프론트엔드입니다.
+
+### React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
