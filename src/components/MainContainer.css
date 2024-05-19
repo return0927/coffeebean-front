@@ -1,0 +1,8 @@
+.page-center {
+    display: flfex;
+    height: calc(100vh - 100px);
+    width: 100vw;
+    
+    align-items: center;
+    justify-content: center;
+}
