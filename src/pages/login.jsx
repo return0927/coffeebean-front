@@ -9,13 +9,13 @@ export default function LoginPage() {
     return (<>
         <TopMenu />
         <MainContainer>
-            <Clickable href={"/login/customer"}>
+            <Clickable href={"customer/"}>
                 <div className='login-modal customer'>
                     <FontAwesomeIcon icon={faRightToBracket}/>
                     <label>일반 고객 로그인</label>
                 </div>
             </Clickable>
-            <Clickable href={"/login/seller"}>
+            <Clickable href={"seller/"}>
                 <div className='login-modal seller clickable'>
                     <FontAwesomeIcon icon={faRightToBracket}/>
                     <label>판매자 로그인</label>
