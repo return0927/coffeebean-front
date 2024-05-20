@@ -3,6 +3,14 @@ name: Deploy to dev
 on:
   push:
     branches: [ dev ]
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      AWS_S3_BUCKET:
+        required: true
 
 jobs:
   build:
@@ -31,9 +39,6 @@ jobs:
 
       - name: Compile source
         run: npm run build
-
-      - name: Generate deployment package
-        run: zip -rq deploy.zip .
 
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
