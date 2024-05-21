@@ -1,9 +1,9 @@
-
 const HomePage = () => {
     return (
         <div>
             Main Page
         </div>
+
     )
 };
 
