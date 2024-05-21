@@ -1,0 +1,31 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 6px;
+    grid-row-gap: 6px;
+    }
+    
+.grid .sidebar { 
+    grid-area: 1 / 1 / 5 / 2; 
+}
+
+.grid .trend {
+    grid-area: 1 / 2 / 2 / 6; 
+}
+
+.grid .order-list {
+    grid-area: 2 / 2 / 3 / 6; 
+}
+
+.grid .ok-list {
+    grid-area: 3 / 2 / 4 / 6; 
+}
+
+.grid .request-list {
+    grid-area: 4 / 2 / 5 / 6;
+}
+
+#left {
+    align-items: right;
+}

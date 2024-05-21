@@ -28,6 +28,7 @@ module.exports = {
     ],
     'react/prop-types': 'off',
     'no-continue': 'off',
+    'no-unused-vars': 'warn',
     'consistent-return': 'off',
   },
 }

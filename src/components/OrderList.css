@@ -1,0 +1,108 @@
+:root {
+    --primary-color: hsl(327, 59%, 63%);
+    --secondary-color: #999D6B;
+    --complimentary-color: #88BFB5;
+    --contrast-color: #4D3A33;
+    --light-color: #EDDDC7;
+    }
+
+body{
+    background-color: #f2f3f4;
+    font-family: "Gowun Dodum", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sidebar { 
+    border-radius: 15px;
+    position: fixed;
+    text-align: center;
+    width: 15%;
+    height: 100vh;
+    background: var(--secondary-color);
+}
+
+.main-nav{    
+    a{
+        text-decoration: none;
+        color: #fff;
+        text-align: left;
+        margin-left: 20px;
+        display: block;
+        padding: 10px;
+        padding-left: 0;
+        font: 400 1.125em;
+        &:hover{
+        color: #fff;
+        }
+    }
+}
+.sidebar ul{
+    list-style: none;
+    margin:0px; 
+    padding:0px;
+    li{
+        &:hover{
+            background-color: #6d7052;
+            border-radius: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+}
+    
+.MainItem {
+    width: 85%;
+    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.Title {
+    font-size: 1.5em;
+}
+
+table {
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    border-collapse: collapse;
+    width: 150vh;
+    margin: 1rem auto;
+    background-color: white;
+}
+
+th {
+    font-weight: normal;
+    vertical-align: middle;
+    padding: 7px;
+    padding-left: 15px;
+    border-bottom: 3px solid #ededed;
+    text-align: left;
+}
+td {
+    font-weight: normal;
+    vertical-align: middle;
+    padding: .75rem 1rem .75rem;
+    text-align: left;
+    
+}
+tbody tr {
+    &:hover{
+        background-color: #f8f6f2;
+    }
+}
+
+#details {
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #ededed;
+}
+
+#title {
+    font-weight: bold;
+    padding: 10px;
+}

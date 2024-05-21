@@ -1,11 +1,11 @@
 import TopMenu from '../components/TopMenu';
-import SignInEnd from '../components/SignInEnd';
+import ProducerMain from '../components/ProducerMain';
 
 const IndexPage = () => {
   return (
     <>
       <TopMenu />
-      <SignInEnd />
+      <ProducerMain />
     </>
   );
 };
