@@ -10,18 +10,30 @@ export default function LoginPage() {
     <>
       <TopMenu />
       <MainContainer>
-        <Clickable href={'customer/'}>
-          <div className='login-modal customer'>
-            <FontAwesomeIcon icon={faRightToBracket} />
-            <label>일반 고객 로그인</label>
+        <div className='login-modal'>
+          <div className='login-row'>
+            <Clickable href={'customer/'}>
+              <div className='login customer'>
+                <FontAwesomeIcon icon={faRightToBracket} />
+                <label>일반 고객 로그인</label>
+              </div>
+            </Clickable>
+            <Clickable href={'seller/'}>
+              <div className='login seller clickable'>
+                <FontAwesomeIcon icon={faRightToBracket} />
+                <label>판매자 로그인</label>
+              </div>
+            </Clickable>
           </div>
-        </Clickable>
-        <Clickable href={'seller/'}>
-          <div className='login-modal seller clickable'>
-            <FontAwesomeIcon icon={faRightToBracket} />
-            <label>판매자 로그인</label>
+          <div className='register-row'>
+            <Clickable href={'/register'}>
+              <div className='register'>
+                <FontAwesomeIcon icon={faRightToBracket} />
+                <label>회원가입하기</label>
+              </div>
+            </Clickable>
           </div>
-        </Clickable>
+        </div>
       </MainContainer>
     </>
   );
