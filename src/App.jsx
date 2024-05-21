@@ -19,7 +19,6 @@ for (const path of Object.keys(pages)) {
     loader: pages[path]?.loader,
     ErrorBoundary: pages[path]?.ErrorBoundary,
   });
-  console.log(routes.at(routes.length - 1));
 }
 
 const router = createBrowserRouter(

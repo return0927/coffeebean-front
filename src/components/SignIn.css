@@ -1,0 +1,73 @@
+.SignIncontainer{
+    display: inline-block;
+    padding: 5%;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.SigninImage{
+    display: flex;
+    margin: 0 auto;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+
+.SigninContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    height: 100%;
+    width: 600px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.SigninContainer div {
+    background:transparent;
+    border:none;
+    border-bottom: solid 1px #ccc;
+    padding:10px 0px 5px 0px;
+    width:100%;
+    margin-bottom: 10px;
+}
+
+
+.SigninContainer input {
+    border-width: 0;
+    display: block; /* 입력 필드를 블록 레벨 요소로 설정하여 수직으로 배치 */
+    width: 100%; /* 입력 필드의 너비를 100%로 설정 */
+    padding: 5px; /* 입력 필드의 안쪽 여백 설정 */
+    box-sizing: border-box; /* padding과 border를 너비와 높이에 포함 */
+}
+
+.SignInGender{
+    display: flex;
+    flex-direction: column;
+    background:transparent;
+    border:none;
+    padding:20px 0px 5px 0px;
+    width:100%;
+}
+
+
+.SignInButton {
+    border : none;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.SignInButton:hover {
+    background: #e3e3e3;
+}
+
