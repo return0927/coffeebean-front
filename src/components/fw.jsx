@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const Sidebar = () => {
-    const [loginInfo, setLoginInfo] = useState(undefined);
+  const [loginInfo, setLoginInfo] = useState(undefined);
 
-    const myPageBox = (loginInfo === undefined);
+  const myPageBox = loginInfo === undefined;
 
-    return (
-        
-    );
+  return <></>;
 };
 
 export default Sidebar;
