@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './OrderList.css';
+import './orders.css';
 
 const OrderList = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);

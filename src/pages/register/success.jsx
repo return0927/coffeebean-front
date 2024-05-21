@@ -1,4 +1,4 @@
-import './SignInEnd.css';
+import './success.css';
 
 const SignInEnd = () => {
   const redirectToLogin = () => {
