@@ -2,13 +2,13 @@ import HomePage from "../components/HomePage";
 import SignInEnd from "../components/SignInEnd";
 import TopMenu from "../components/TopMenu";
 
-const IndexPage = () => {
+const MainPage = () => {
     return (
         <>
             <TopMenu />
-            <SignInEnd />
+            <HomePage/>
         </>
     );
 };
 
-export default IndexPage;
+export default MainPage;

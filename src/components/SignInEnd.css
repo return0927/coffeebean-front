@@ -1,0 +1,72 @@
+.SignEndcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+.SignEndcircle {
+    filter: brightness(70%);
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+
+
+.text-upper {
+    margin-top: 20%;
+    font-size: 30px;
+}
+
+
+.text-below {
+    margin-top: 20px;
+    font-size: 15px;
+    margin-bottom: 60px;
+}
+
+.ButtonContainer {
+    align-items: center;
+}
+
+.SquareButton_w {
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.SquareButton_b {
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 15px;
+    background: #000000;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.SquareButton_w:hover {
+    background: #e3e3e3;
+}
+
+
+.SquareButton_b:hover {
+    background: #2f2f2f;
+}
