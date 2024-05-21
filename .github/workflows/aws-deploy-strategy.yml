@@ -1,8 +1,6 @@
-name: Deploy to dev
+name: AWS S3 Deploy strategy
 
 on:
-  push:
-    branches: [ dev ]
   workflow_call:
     inputs:
       environment:

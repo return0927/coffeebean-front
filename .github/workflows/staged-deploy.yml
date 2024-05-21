@@ -1,0 +1,17 @@
+name: Prod/Dev staged deployment
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+
+permissions: write-all
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/aws-deploy-strategy.yml
+    with:
+      environment: ${{ github.ref_name }}
+    secrets:
+      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
