@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import MainContainer from '../components/MainContainer';
-import TopMenu from '../components/TopMenu';
-import './login.css';
-import Clickable from '../components/Clickable';
+import MainContainer from '../../components/MainContainer';
+import TopMenu from '../../components/TopMenu';
+import './index.css';
+import Clickable from '../../components/Clickable';
 
 export default function LoginPage() {
   return (
