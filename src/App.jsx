@@ -1,28 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import TopMenu from './components/TopMenu'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import './App.css';
 
-const pages = import.meta.glob("./pages/**/*.jsx", { eager: true });
+const pages = import.meta.glob('./pages/**/*.jsx', { eager: true });
 const routes = [];
 
+// eslint-disable-next-line no-restricted-syntax
 for (const path of Object.keys(pages)) {
   const fileName = path.match(/\.\/pages\/(.*)\.jsx$/)?.[1];
   if (!fileName) continue;
 
-  const normalizedPathName = fileName.includes("$")
-    ? fileName.replace("$", ":")
-    : fileName.replace(/\/index/, "");
+  const normalizedPathName = fileName.includes('$')
+    ? fileName.replace('$', ':')
+    : fileName.replace(/\/index/, '');
 
   routes.push({
-    path: fileName === "index" ? "/" : `/${normalizedPathName.toLowerCase()}`,
+    path: fileName === 'index' ? '/' : `/${normalizedPathName.toLowerCase()}`,
     Element: pages[path].default,
     loader: pages[path]?.loader,
     ErrorBoundary: pages[path]?.ErrorBoundary,
-  })
-  console.log(routes.at(routes.length - 1))
+  });
 }
 
 const router = createBrowserRouter(
@@ -37,4 +33,4 @@ function App() {
   return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

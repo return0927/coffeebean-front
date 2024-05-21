@@ -1,0 +1,42 @@
+.login-modal div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-modal .login-row {
+    flex-direction: row;
+}
+
+.login-modal .login {
+    width: 500px;
+    height: 400px;
+
+    font-size: 2em;
+    padding-left: 40px;
+}
+
+.login-modal .register {
+    width: 1000px;
+    height: calc(2em * 2);
+
+    font-size: 2em;
+    padding-left: 40px;
+}
+
+.login-row .customer {
+    background-color: rgb(203, 199, 65);
+}
+
+.login-row .seller {
+    background-color: rgb(27, 102, 136);
+}
+
+.register-row {
+    background-color: grey;
+}
+
+.login-modal svg {
+    width: 1em;
+    height: 1em;
+}
