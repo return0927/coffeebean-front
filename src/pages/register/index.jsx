@@ -1,13 +1,7 @@
 import SignIn from '../../components/SignIn';
-import TopMenu from '../../components/TopMenu';
 
 const SignInPage = () => {
-  return (
-    <>
-      <TopMenu />
-      <SignIn />
-    </>
-  );
+  return <SignIn />;
 };
 
 export default SignInPage;

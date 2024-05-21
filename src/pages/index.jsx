@@ -1,13 +1,7 @@
-import TopMenu from '../components/TopMenu';
 import ProducerMain from '../components/ProducerMain';
 
 const IndexPage = () => {
-  return (
-    <>
-      <TopMenu />
-      <ProducerMain />
-    </>
-  );
+  return <ProducerMain />;
 };
 
 export default IndexPage;

@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
+import TopMenu from './components/TopMenu';
 
 const pages = import.meta.glob('./pages/**/*.jsx', { eager: true });
 const routes = [];
@@ -24,7 +25,12 @@ for (const path of Object.keys(pages)) {
 const router = createBrowserRouter(
   routes.map(({ Element, ErrorBoundary, ...rest }) => ({
     ...rest,
-    element: <Element />,
+    element: (
+      <>
+        <TopMenu />
+        <Element />
+      </>
+    ),
     ...(ErrorBoundary && { errorElement: <ErrorBoundary /> }),
   }))
 );
