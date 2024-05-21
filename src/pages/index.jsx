@@ -1,14 +1,15 @@
-import HomePage from "../components/HomePage";
+import HomePage from '../components/HomePage';
+import TopMenu from '../components/TopMenu';
 import SignInEnd from "../components/SignInEnd";
-import TopMenu from "../components/TopMenu";
 
 const IndexPage = () => {
-    return (
-        <>
-            <TopMenu />
-            <SignInEnd />
-        </>
-    );
+  return (
+    <>
+      <TopMenu />
+      // <HomePage />
+      <SignInEnd />
+    </>
+  );
 };
 
 export default IndexPage;
