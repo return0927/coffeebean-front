@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Clickable from './Clickable';
 import './TopMenu.css';
 
 const TopMenu = () => {
@@ -6,17 +7,23 @@ const TopMenu = () => {
 
   const myPageBox =
     loginInfo === undefined ? (
-      <div className='menu-content'>
-        <label>Login</label>
-      </div>
+      <Clickable href={'/login'}>
+        <div className='menu-content'>
+          <label>Login</label>
+        </div>
+      </Clickable>
     ) : (
       <>
-        <div className='menu-content'>
-          <label>MyPage</label>
-        </div>
-        <div className='menu-content'>
-          <label>LogOut</label>
-        </div>
+        <Clickable href={'/mypage'}>
+          <div className='menu-content'>
+            <label>MyPage</label>
+          </div>
+        </Clickable>
+        <Clickable href={'/logout'}>
+          <div className='menu-content'>
+            <label>LogOut</label>
+          </div>
+        </Clickable>
       </>
     );
 
@@ -27,15 +34,21 @@ const TopMenu = () => {
       </div>
 
       <div className='menu-left'>
-        <div className='menu-content'>
-          <span>Home</span>
-        </div>
-        <div className='menu-content'>
-          <span>Products</span>
-        </div>
-        <div className='menu-content'>
-          <span>Sellers</span>
-        </div>
+        <Clickable href={'/'}>
+          <div className='menu-content'>
+            <span>Home</span>
+          </div>
+        </Clickable>
+        <Clickable href={'/products'}>
+          <div className='menu-content'>
+            <span>Products</span>
+          </div>
+        </Clickable>
+        <Clickable href={'/sellers'}>
+          <div className='menu-content'>
+            <span>Sellers</span>
+          </div>
+        </Clickable>
       </div>
 
       <div className='menu-right'>{myPageBox}</div>
