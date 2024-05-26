@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './index.css';
-import Dropdown from './dropdown';
 import Clickable from '../../components/Clickable';
+import Dropdown from '../../components/dropdown/Dropdown';
+import DropSelection from '../../components/dropdown/DropSelection';
 
 const RequestList = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
@@ -67,7 +68,10 @@ const RequestList = () => {
                 <td>10000</td>
                 <td>1</td>
                 <td>
-                  <Dropdown />
+                  <Dropdown>
+                    <DropSelection>수락</DropSelection>
+                    <DropSelection>거절</DropSelection>
+                  </Dropdown>
                 </td>
               </tr>
             </tbody>
