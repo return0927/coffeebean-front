@@ -16,6 +16,7 @@ const subpages = [
   '/partners',
   '/partners/myproducts',
   '/partners/requests',
+  '/partners/orders',
 ];
 
 const IndexPage = () => {

@@ -1,14 +1,7 @@
-/*
-export default function PartnersMainPage() {
-  return <div>판매자용 메인 페이지입니다</div>;
-}
-*/
-
 import { useState } from 'react';
 import './index.css';
-import Clickable from '../../components/Clickable';
 
-const PartnersMainPage = () => {
+const ProducerMain = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
 
   const myPageBox = loginInfo === undefined;
@@ -20,19 +13,19 @@ const PartnersMainPage = () => {
           <h3>Menu</h3>
           <ul>
             <li>
-              <Clickable href={'/partners/myProducts'}>
+              <a href='#' id='link'>
                 <i className='fa-solid fa-shop'></i> 상품 관리
-              </Clickable>
+              </a>
             </li>
             <li>
-              <Clickable href={'/partners/orders'}>
-                <i className='fa-solid list-check fa-list-check'></i> 주문 관리
-              </Clickable>
+              <a href='#' id='link'>
+                <i className='fa-solid fa-list-check'></i> 주문 관리
+              </a>
             </li>
             <li>
-              <Clickable href={'/partners/requests'}>
-                <i className='fa-regular fa-comment-dots'></i> 주문제작 관리
-              </Clickable>
+              <a href='#' id='link'>
+                <i className='fa-regular fa-comment-dots'></i> 요청 관리
+              </a>
             </li>
           </ul>
         </nav>
@@ -120,4 +113,4 @@ const PartnersMainPage = () => {
   );
 };
 
-export default PartnersMainPage;
+// export default ProducerMain;

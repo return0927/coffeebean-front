@@ -1,40 +1,18 @@
 import { useState } from 'react';
-import './orders.css';
+import './mypage.css';
+import Clickable from '../../components/Clickable';
 
-const OrderList = () => {
+const MyOrder = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
 
   const myPageBox = loginInfo === undefined;
 
   return (
     <div>
-      <div className='sidebar'>
-        <nav className='main-nav'>
-          <h3>Menu</h3>
-          <ul>
-            <li>
-              <a href='#' id='link'>
-                <i className='fa-solid fa-shop'></i> 상품 관리
-              </a>
-            </li>
-            <li>
-              <a href='#' id='link'>
-                <i className='fa-solid list-check fa-list-check'></i> 주문 관리
-              </a>
-            </li>
-            <li>
-              <a href='#' id='link'>
-                <i className='fa-solid comment-dot fa-comment-dots'></i> 요청
-                관리
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
       <div className='MainItem'>
         <div className='Title'>
-          <h2>주문목록</h2> <br />
+          <h2>마이페이지</h2> <br />
+          <h3>주문내역</h3>
         </div>
 
         <div>
@@ -42,33 +20,19 @@ const OrderList = () => {
             <thead>
               <tr>
                 <th>주문번호</th>
-                <th>회원ID</th>
-                <th>주문가격</th>
+                <th>상품정보</th>
                 <th>주문상태</th>
-                <th>주문날짜</th>
+                <th>수량</th>
+                <th>금액</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>101010</td>
-                <td>20202020202020</td>
+                <td>asdf1234</td>
+                <td>세르메니아 블렌드</td>
+                <td>대기중</td>
                 <td>1</td>
-                <td>test</td>
-                <td>2024-05-20</td>
-              </tr>
-              <tr>
-                <td>101010</td>
-                <td>20202020202020</td>
-                <td>1</td>
-                <td>test</td>
-                <td>2024-05-20</td>
-              </tr>
-              <tr>
-                <td>101010</td>
-                <td>20202020202020</td>
-                <td>1</td>
-                <td>test</td>
-                <td>2024-05-20</td>
+                <td>2021</td>
               </tr>
             </tbody>
           </table>
@@ -77,5 +41,4 @@ const OrderList = () => {
     </div>
   );
 };
-
-export default OrderList;
+export default MyOrder;
