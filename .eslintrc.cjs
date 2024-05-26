@@ -30,5 +30,11 @@ module.exports = {
     'no-continue': 'off',
     'no-unused-vars': 'warn',
     'consistent-return': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 }
