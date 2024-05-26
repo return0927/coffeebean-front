@@ -40,8 +40,8 @@ const PartnersMainPage = () => {
 
       <div className='MainItem'>
         <div>
-          <h3>주문 처리대기</h3>
-          <h3>주문제작 처리 대기</h3>
+          <h3>주문 처리대기 : </h3>
+          <h3>주문제작 처리 대기 : </h3>
         </div>
         <table>
           <thead>
