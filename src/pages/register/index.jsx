@@ -2,17 +2,16 @@ import './index.css';
 import Clickable from '../../components/Clickable';
 
 const SignInPage = () => {
-    // 다시 로그인 페이지로
-    const redirectToLogin = () => {
-      window.location.href = '/login';
-    };
+  // 다시 로그인 페이지로
+  const redirectToLogin = () => {
+    window.location.href = '/login';
+  };
 
-    //가입완료페이지
-   
-    const redirectTosuccess = () => {
-      window.location.href = '/register/success';
-    };
+  // 가입완료페이지
 
+  const redirectTosuccess = () => {
+    window.location.href = '/register/success';
+  };
 
   return (
     <div className='SignIncontainer'>
@@ -74,14 +73,21 @@ const SignInPage = () => {
           />
         </div>
         <div className='button_contain'>
-            <button type='button' className='SignInButton' onClick={redirectTosuccess}>
+          <button
+            type='button'
+            className='SignInButton'
+            onClick={redirectTosuccess}
+          >
             가입하기
-            </button>
-            <button type='button' className='SignInButton' onClick={redirectToLogin}>
+          </button>
+          <button
+            type='button'
+            className='SignInButton'
+            onClick={redirectToLogin}
+          >
             이전으로
-            </button>
+          </button>
         </div>
-
       </div>
     </div>
   );
