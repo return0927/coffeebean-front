@@ -1,5 +1,4 @@
 import '../login.css';
-import './index.css';
 import MainContainer from '../../../components/MainContainer';
 
 const SignUpPage = () => {
