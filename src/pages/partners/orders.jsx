@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import '../index.css';
-import Clickable from '../../../components/Clickable';
+import './index.css';
+import Clickable from '../../components/Clickable';
 
 const OrderList = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
@@ -34,34 +34,45 @@ const OrderList = () => {
 
       <div className='MainItem'>
         <div className='Title'>
-          <h2>상품 관리</h2> <br />
+          <h2>주문목록</h2> <br />
         </div>
 
         <div>
           <table>
             <thead>
               <tr>
-                <th>제조연월일</th>
-                <th>상품이름</th>
-                <th>원산지</th>
-                <th>용량</th>
-                <th>판매가</th>
+                <th>주문번호</th>
+                <th>회원ID</th>
+                <th>주문가격</th>
+                <th>주문상태</th>
+                <th>주문날짜</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>2023/11/11</td>
-                <td>세르메니아 블렌드</td>
-                <td>브라질 50%, 케냐 30%, 아르헨티나 5%</td>
-                <td>100g</td>
-                <td>2021</td>
+                <td>101010</td>
+                <td>20202020202020</td>
+                <td>1</td>
+                <td>test</td>
+                <td>2024-05-20</td>
+              </tr>
+              <tr>
+                <td>101010</td>
+                <td>20202020202020</td>
+                <td>1</td>
+                <td>test</td>
+                <td>2024-05-20</td>
+              </tr>
+              <tr>
+                <td>101010</td>
+                <td>20202020202020</td>
+                <td>1</td>
+                <td>test</td>
+                <td>2024-05-20</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <Clickable href={'/partners/myProducts/addproducts'}>
-          <label id='right'>등록</label>
-        </Clickable>
       </div>
     </div>
   );
