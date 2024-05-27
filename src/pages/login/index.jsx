@@ -23,7 +23,7 @@ export default function LoginPage() {
           </Clickable>
         </div>
         <div className='register-row'>
-          <Clickable href={'/register'}>
+          <Clickable href={'/register/personal/'}>
             <div className='register'>
               <FontAwesomeIcon icon={faRightToBracket} />
               <label>회원가입하기</label>
