@@ -1,8 +1,35 @@
 import './index.css';
+import { useState } from 'react';
 import Clickable from '../../components/Clickable';
 
+const selections = Object.freeze({
+  kind: ['Decaffeine', 'Blended', 'Cold Brew'],
+  amount: ['200g', '500g', '1kg'],
+  origin: ['Africa', 'Latin America', 'Asia', 'Pacific'],
+  sort: ['Popularity', 'Lowest Price', 'Highest Price', 'Newest', 'Oldest'],
+});
+
 const SearchPage = () => {
-  /* 버튼에 필터링 함수를 넣어야 하는데 실패 */
+  const [selectedKind, setSelectedKind] = useState(undefined);
+  const [selectedAmount, setSelectedAmount] = useState(undefined);
+  const [selectedOrigin, setSelectedOrigin] = useState(undefined);
+  const [selectedSort, setSelectedSort] = useState(undefined);
+
+  const handleKind = (index) => {
+    setSelectedKind((origin) => (origin === index ? undefined : index));
+  };
+
+  const handleAmount = (index) => {
+    setSelectedAmount((origin) => (origin === index ? undefined : index));
+  };
+
+  const handleOrigin = (index) => {
+    setSelectedOrigin((origin) => (origin === index ? undefined : index));
+  };
+
+  const handleSort = (index) => {
+    setSelectedSort((origin) => (origin === index ? undefined : index));
+  };
 
   return (
     <div className='MainContainer'>
@@ -37,138 +64,78 @@ const SearchPage = () => {
       <div className='search_container'>
         <div className='kind'>
           <p>유형</p>
-          <button
-            className='search_category'
-            data-filter='defacceine'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Decaffeine{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='blended'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Blended{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='coldbrew'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Cold Brew{' '}
-          </button>
+          {selections.kind.map((elem, index) => {
+            return (
+              <button
+                className={`search_category${
+                  index === selectedKind ? ' active' : ''
+                }`}
+                data-filter={elem}
+                key={`${index} ${elem}`}
+                onClick={() => handleKind(index)}
+              >
+                {' '}
+                {elem}{' '}
+              </button>
+            );
+          })}
         </div>
 
         <div className='amount'>
           <p>용량</p>
-          <button
-            className='search_category'
-            data-filter='200g'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            200g{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='500g'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            500g{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='1kg'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            1kg{' '}
-          </button>
+          {selections.amount.map((elem, index) => {
+            return (
+              <button
+                className={`search_category${
+                  index === selectedAmount ? ' active' : ''
+                }`}
+                data-filter={elem}
+                key={`${index} ${elem}`}
+                onClick={() => handleAmount(index)}
+              >
+                {' '}
+                {elem}{' '}
+              </button>
+            );
+          })}
         </div>
 
         <div className='origin'>
           <p>원산지</p>
-          <button
-            className='search_category'
-            data-filter='africa'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Africa{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='latin_america'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Latin America{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='asia'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Asia{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='pacific'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Pacific{' '}
-          </button>
+          {selections.origin.map((elem, index) => {
+            return (
+              <button
+                className={`search_category${
+                  index === selectedOrigin ? ' active' : ''
+                }`}
+                data-filter={elem}
+                key={`${index} ${elem}`}
+                onClick={() => handleOrigin(index)}
+              >
+                {' '}
+                {elem}{' '}
+              </button>
+            );
+          })}
         </div>
 
         <div className='sortby'>
           <p>정렬기준</p>
-          <button
-            className='search_category'
-            data-filter='popularity'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Popularity{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='lowest_price'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Lowest Price{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='highest_price'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Highest Price{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='newest'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Newest{' '}
-          </button>
-          <button
-            className='search_category'
-            data-filter='oldest'
-            onClick='toggleFilter(this)'
-          >
-            {' '}
-            Oldest{' '}
-          </button>
+          {selections.sort.map((elem, index) => {
+            return (
+              <button
+                className={`search_category${
+                  index === selectedSort ? ' active' : ''
+                }`}
+                data-filter={elem}
+                key={`${index} ${elem}`}
+                onClick={() => handleSort(index)}
+              >
+                {' '}
+                {elem}{' '}
+              </button>
+            );
+          })}
         </div>
       </div>
 
