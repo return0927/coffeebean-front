@@ -21,7 +21,7 @@ const Dropdown = ({ onToggle, onSelect, children }) => {
   return (
     <div className='dropdown'>
       <button className='dropdown-toggle' onClick={toggleDropdown}>
-        {selectedItem}
+        {selectedItem} <i className='fa-solid fa-caret-down'></i>
       </button>
       {isOpen && (
         <ul className='dropdown-menu'>

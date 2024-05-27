@@ -1,0 +1,84 @@
+.MainContents{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensures all content is aligned vertically */
+}
+
+.frontBar{
+    width: 60vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #bbb;
+    padding: 10px;
+}
+
+
+.front_bar .Clickable {
+    text-align: center;
+    margin: 0 10px;
+}
+  
+.front_bar .Clickable div {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.front_bar .Clickable div:hover {
+    background-color: #cacaca;
+}
+
+.front_bar .Clickable label {
+    font-size: 16px;
+    color: #333;
+}
+
+.forms{
+    max-width: 1200px;
+    width: 50vh;
+    display: flex;
+    padding: 15%;
+    padding-bottom: 5%;
+    justify-content: center;
+    flex-direction: column; /* Ensures all content is aligned vertically */
+}
+
+.forms input {
+    width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+
+.Main {
+    font-weight: 900;
+    font-size: 19px;
+    color: #707070;
+}
+
+button {
+    border : none;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 15px;
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+    &:hover{
+        background-color: #474747;
+    }
+}
