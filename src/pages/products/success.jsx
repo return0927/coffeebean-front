@@ -16,7 +16,7 @@ const MyPage = () => {
 
   return (
     <div>
-      <div className='MainContent'>
+      <div className='ScsMain'>
         <h1
           style={{
             fontSize: 'bold',

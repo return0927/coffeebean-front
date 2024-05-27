@@ -15,7 +15,7 @@ const Test = () => {
   const { id } = useParams();
 
   return (
-    <div className='MainContent'>
+    <div className='ScsMain' style={{ flexDirection: 'row' }}>
       <aside className='productImg'>
         <img
           src='https://img.freepik.com/free-photo/coffee-beans_144627-22481.jpg?t=st=1716689949~exp=1716693549~hmac=6a19a9208ac148ddd47701eeae089a0f600de59f4733f8b0a215d164872cd8ee&w=360'
@@ -97,9 +97,11 @@ const Test = () => {
           </table>
         </div>
         <div className='button_contain'>
-          <Clickable href={`/products/checkout/${id}`} className='button'>
-            <label>구매하기</label>
-          </Clickable>
+          <button>
+            <Clickable href={`/products/checkout/${id}`}>
+              <label style={{ color: '#fff' }}>구매하기</label>
+            </Clickable>
+          </button>
         </div>
       </div>
     </div>

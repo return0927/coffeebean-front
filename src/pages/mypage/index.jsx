@@ -12,7 +12,7 @@ const MyPage = () => {
       <div className='MainContents'>
         <h2>마이페이지</h2>
 
-        <div className='front_bar'>
+        <div className='frontBar'>
           <Clickable href={'/mypage'}>
             <label className='Main'>비밀변호 변경</label>
           </Clickable>

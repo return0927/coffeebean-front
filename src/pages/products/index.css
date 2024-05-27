@@ -1,7 +1,7 @@
-.MainContent{
-    display: inline-block;
+.ScsMain{
+    display: flex;
     padding: 5%;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
