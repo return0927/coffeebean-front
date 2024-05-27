@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 const ProductDetail = () => {
   const { id } = useParams();
 
-  return <div className='test' href={'/partners/myProducts'}></div>;
+  return <div className='test' href={`/products/${id}`}></div>;
 };
 
 export default ProductDetail;
