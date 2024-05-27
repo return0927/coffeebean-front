@@ -26,7 +26,9 @@ const SignUpPage = () => {
           </div>
           <div className='LogIn_Type'>Seller Login</div>
         </div>
-
+        <div className='LogIn_Type'>Seller Login</div>
+      </div>
+    
         <div className='SignIn_Block'>
           <div>
             Seller ID
