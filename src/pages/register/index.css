@@ -10,69 +10,75 @@
 .SigninImage{
     display: flex;
     margin: 0 auto;
-    margin-right: 10%;
+    margin-right: 5%;
     margin-left: 10%;
 }
 
 
 .SigninContainer{
     display: flex;
+    background-color: rgba(220, 220, 220, 0.5);
     flex-direction: column;
     justify-content: center;
     align-items: left;
     height: 100%;
     width: 600px;
+    padding: 40px;
     margin: 0 auto;
-    gap: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
 .SigninContainer div {
-    background:transparent;
-    border:none;
-    border-bottom: solid 1px #ccc;
-    padding:10px 0px 5px 0px;
+    background: transparent;
+    border: none;
+    padding:10px 0px 5px;
     width:100%;
-    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 
 .SigninContainer input {
-    border-width: 0;
-    display: block; /* 입력 필드를 블록 레벨 요소로 설정하여 수직으로 배치 */
+    border: none;
+    border-radius: 10px;
+    display: flex;
     width: 100%; /* 입력 필드의 너비를 100%로 설정 */
-    padding: 5px; /* 입력 필드의 안쪽 여백 설정 */
-    box-sizing: border-box; /* padding과 border를 너비와 높이에 포함 */
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .SignInGender{
     display: flex;
-    flex-direction: column;
-    background:transparent;
-    border:none;
-    padding:20px 0px 5px 0px;
-    width:100%;
+    align-items:left;
 }
 
+.SignInGender input[type='radio']{
+    transform: scale(1.2);
+    margin: 0px;
+}
 
 .SignInButton {
-    border : none;
+    border : 1px solid #ccc;
     border-radius: 10px;
-    width: 150px;
+    width: 200px;
     text-align: center;
-    padding: 10px 10px; 
-    font-size: 15px;
+    padding: 20px 30px; 
+    font-size: 16px;
     display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
-
+    margin-top: 20px;
 }
 
 .SignInButton:hover {
-    background: #e3e3e3;
+    background: black;
+    color: white;
 }
 
 
 .button_contain{
+    gap: 10px;
     display: flex;
     justify-content: center;
 }
