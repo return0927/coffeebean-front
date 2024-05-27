@@ -7,7 +7,7 @@
     height: 100%;
     margin: 0 auto;
 }
-.SigninImage{
+.productImg{
     display: flex;
     margin: 0 auto;
     margin-right: 10%;
@@ -20,13 +20,6 @@
     align-items: left;
     height: 100%;
     margin: 0 auto;
-}
-.SigninContainer div {
-    background:transparent;
-    border:none;
-    border-bottom: solid 1px #ccc;
-    padding:10px 0px 5px 0px;
-    margin-bottom: 10px;
 }
 .buybtn {
     border : none;
@@ -51,8 +44,4 @@
     margin: 1rem auto;
     width: 250%;
     background-color: transparent;
-}
-
-Dropdown{
-    
 }

@@ -17,7 +17,7 @@ const Test = () => {
 
   return (
     <div className='MainContent'>
-      <aside className='SigninImage'>
+      <aside className='productImg'>
         <img
           src='https://img.freepik.com/free-photo/coffee-beans_144627-22481.jpg?t=st=1716689949~exp=1716693549~hmac=6a19a9208ac148ddd47701eeae089a0f600de59f4733f8b0a215d164872cd8ee&w=360'
           width='300'
