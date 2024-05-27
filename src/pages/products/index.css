@@ -1,0 +1,58 @@
+.MainContent{
+    display: inline-block;
+    padding: 5%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+}
+.SigninImage{
+    display: flex;
+    margin: 0 auto;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+.contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    height: 100%;
+    margin: 0 auto;
+}
+.SigninContainer div {
+    background:transparent;
+    border:none;
+    border-bottom: solid 1px #ccc;
+    padding:10px 0px 5px 0px;
+    margin-bottom: 10px;
+}
+.buybtn {
+    border : none;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.button_contain{
+    display: flex;
+    justify-content: center;
+}
+.productDetail {
+    box-shadow: none;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    margin: 1rem auto;
+    width: 250%;
+    background-color: transparent;
+}
+
+Dropdown{
+    
+}

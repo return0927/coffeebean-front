@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 const ProductDetail = () => {
   const { id } = useParams();
 
-  return <>Product ID 는 {id} 입니다.</>;
+  return <div className='test' href={'/partners/myProducts'}></div>;
 };
 
 export default ProductDetail;

@@ -2,6 +2,13 @@ import { useState } from 'react';
 import './index.css';
 import Clickable from '../../components/Clickable';
 
+const formatPrice = (price) => {
+  if (price >= 1000) {
+    let res = String(price).substr(0, 2);
+    res += `,${String(price).substr(-3)}`;
+    return res;
+  }
+};
 const MyPage = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
 
@@ -40,7 +47,7 @@ const MyPage = () => {
                 <td>세르메니아 블렌드 200g</td>
                 <td>대기중</td>
                 <td>3</td>
-                <td>20000</td>
+                <td>{formatPrice(20000)}</td>
               </tr>
             </tbody>
           </table>
