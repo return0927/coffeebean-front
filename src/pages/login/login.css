@@ -1,0 +1,123 @@
+.SignIn_Container{
+    width: 75%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.Sign_In_Type{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.SignButton_Left{
+    border : none;
+    border-radius:20px;
+    width: 150px;
+    height: 60px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: black;
+    color: #ffffff;
+}
+
+.SignButton_Right{
+    border : none;
+    border-radius:20px;
+    width: 150px;
+    height: 60px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    color: black;
+}
+
+.LogIn_Type{
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.SignIn_Block {
+    width: 90%; 
+    max-width: 600px; 
+    padding: 30px; 
+    margin: 0 auto; 
+    display: block;  
+    border-radius: 10px; 
+    box-shadow: #646464;
+    background-color: #f9f9f9; /* 배경색 추가 */
+}
+
+.SignIn_Block div{
+    font-weight: bold;
+    font-size:20px;
+}
+
+.SignIn_Block p{
+    font-weight: lighter;
+    color: #909090;
+    margin-top: -1px;
+    margin-bottom: 30px;
+    font-size:15px;
+}
+
+.SignIn_Block input{
+    border-width: 0;
+    display: block; 
+    width: 100%; 
+    padding: 15px; 
+    box-sizing: border-box; 
+}
+
+.SignIn_Button_contain {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.SignInButton_Left,
+.SignInButton_Right {
+    border: 1px solid #ababab;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding: 10px; 
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.SignInButton_Left {
+    background-color: #ffffff;
+    color: black;
+}
+
+.SignInButton_Right {
+    background-color: black;
+    color: #ffffff;
+}
+
+
+
