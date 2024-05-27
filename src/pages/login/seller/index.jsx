@@ -4,7 +4,7 @@ import MainContainer from '../../../components/MainContainer';
 const SignUpPage = () => {
   // 회원가입 페이지
   const redirectSignup = () => {
-    window.location.href = '/register';
+    window.location.href = '/register/business/';
   };
 
   // 로그인 완료 후 메인으로 이동
