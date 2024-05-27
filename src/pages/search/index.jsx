@@ -9,6 +9,27 @@ const selections = Object.freeze({
   sort: ['Popularity', 'Lowest Price', 'Highest Price', 'Newest', 'Oldest'],
 });
 
+const selectionBuilder = (
+  array,
+  handler,
+  selectedIndex,
+  selectedClass = 'active'
+) => {
+  return array.map((elem, index) => {
+    return (
+      <button
+        className={`search_category${index === selectedIndex ? ` ${selectedClass}` : ''}`}
+        data-filter={elem}
+        key={`${index} ${elem}`}
+        onClick={() => handler(index)}
+      >
+        {' '}
+        {elem}{' '}
+      </button>
+    );
+  });
+};
+
 const SearchPage = () => {
   const [selectedKind, setSelectedKind] = useState(undefined);
   const [selectedAmount, setSelectedAmount] = useState(undefined);
@@ -64,78 +85,22 @@ const SearchPage = () => {
       <div className='search_container'>
         <div className='kind'>
           <p>유형</p>
-          {selections.kind.map((elem, index) => {
-            return (
-              <button
-                className={`search_category${
-                  index === selectedKind ? ' active' : ''
-                }`}
-                data-filter={elem}
-                key={`${index} ${elem}`}
-                onClick={() => handleKind(index)}
-              >
-                {' '}
-                {elem}{' '}
-              </button>
-            );
-          })}
+          {selectionBuilder(selections.kind, handleKind, selectedKind)}
         </div>
 
         <div className='amount'>
           <p>용량</p>
-          {selections.amount.map((elem, index) => {
-            return (
-              <button
-                className={`search_category${
-                  index === selectedAmount ? ' active' : ''
-                }`}
-                data-filter={elem}
-                key={`${index} ${elem}`}
-                onClick={() => handleAmount(index)}
-              >
-                {' '}
-                {elem}{' '}
-              </button>
-            );
-          })}
+          {selectionBuilder(selections.amount, handleAmount, selectedAmount)}
         </div>
 
         <div className='origin'>
           <p>원산지</p>
-          {selections.origin.map((elem, index) => {
-            return (
-              <button
-                className={`search_category${
-                  index === selectedOrigin ? ' active' : ''
-                }`}
-                data-filter={elem}
-                key={`${index} ${elem}`}
-                onClick={() => handleOrigin(index)}
-              >
-                {' '}
-                {elem}{' '}
-              </button>
-            );
-          })}
+          {selectionBuilder(selections.origin, handleOrigin, selectedOrigin)}
         </div>
 
         <div className='sortby'>
           <p>정렬기준</p>
-          {selections.sort.map((elem, index) => {
-            return (
-              <button
-                className={`search_category${
-                  index === selectedSort ? ' active' : ''
-                }`}
-                data-filter={elem}
-                key={`${index} ${elem}`}
-                onClick={() => handleSort(index)}
-              >
-                {' '}
-                {elem}{' '}
-              </button>
-            );
-          })}
+          {selectionBuilder(selections.sort, handleSort, selectedSort)}
         </div>
       </div>
 
