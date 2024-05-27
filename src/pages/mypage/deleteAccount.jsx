@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './index.css';
 import Clickable from '../../components/Clickable';
 
-const MyPage = () => {
+const DeleteAccount = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
 
   const myPageBox = loginInfo === undefined;
@@ -14,13 +14,13 @@ const MyPage = () => {
 
         <div className='front_bar'>
           <Clickable href={'/mypage'}>
-            <label className='Main'>비밀변호 변경</label>
+            <label>비밀변호 변경</label>
           </Clickable>
           <Clickable href={'/myPage/orderHistory'}>
             <label>주문내역</label>
           </Clickable>
           <Clickable href={'/myPage/deleteAccount'}>
-            <label>회원탈퇴</label>
+            <label className='Main'>회원탈퇴</label>
           </Clickable>
         </div>
 
@@ -43,20 +43,11 @@ const MyPage = () => {
             />
           </div>
           <br />
-          <div>
-            새 비밀번호 입력
-            <input
-              type='text'
-              name='newPw'
-              placeholder={'새 비밀번호를 입력하세요'}
-            />
-          </div>
-          <br />
         </div>
 
         <div className='button_contain'>
-          <button type='button' className='PwChangeBtn'>
-            변경하기
+          <button type='button' className='deleteAccountBtn'>
+            회원 탈퇴하기
           </button>
         </div>
       </div>
@@ -64,4 +55,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default DeleteAccount;

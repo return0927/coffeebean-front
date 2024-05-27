@@ -31,7 +31,7 @@ body{
     padding:0px;
     li{
         &:hover{
-            background-color: #1f1f1f;
+            background-color: #474747;
             border-radius: 10px;
             margin-left: 5px;
             margin-right: 5px;

@@ -15,10 +15,10 @@ const MyPage = () => {
           <Clickable href={'/mypage'}>
             <label>비밀변호 변경</label>
           </Clickable>
-          <Clickable href={'orderHistory/'}>
+          <Clickable href={'/myPage/orderHistory'}>
             <label className='Main'>주문내역</label>
           </Clickable>
-          <Clickable href={'deleteAccount/'}>
+          <Clickable href={'/myPage/deleteAccount'}>
             <label>회원탈퇴</label>
           </Clickable>
         </div>

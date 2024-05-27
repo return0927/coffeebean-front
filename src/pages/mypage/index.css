@@ -66,3 +66,19 @@
     color: #707070;
 }
 
+button {
+    border : none;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    padding: 10px 10px; 
+    font-size: 15px;
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+    &:hover{
+        background-color: #474747;
+    }
+}
