@@ -10,11 +10,11 @@ const MyPage = () => {
   return (
     <div>
       <div className='MainContents'>
-        <h1 className='Title'>마이페이지</h1>
+        <h2>마이페이지</h2>
 
         <div className='front_bar'>
           <Clickable href={'/mypage'}>
-            <label>비밀변호 변경</label>
+            <label className='Main'>비밀변호 변경</label>
           </Clickable>
           <Clickable href={'orderHistory/'}>
             <label>주문내역</label>
