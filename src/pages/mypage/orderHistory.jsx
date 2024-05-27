@@ -4,11 +4,11 @@ import Clickable from '../../components/Clickable';
 
 const formatPrice = (price) => {
   if (price >= 1000) {
-    let res = String(price).substr(0, 2);
-    res += `,${String(price).substr(-3)}`;
-    return res;
+    return price.toLocaleString();
   }
+  return price;
 };
+
 const MyPage = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
 

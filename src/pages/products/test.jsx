@@ -6,10 +6,9 @@ import './index.css';
 
 const formatPrice = (price) => {
   if (price >= 1000) {
-    let res = String(price).substr(0, 2);
-    res += `,${String(price).substr(-3)}`;
-    return res;
+    return price.toLocaleString();
   }
+  return price;
 };
 
 const Test = () => {
@@ -28,6 +27,10 @@ const Test = () => {
       <div>
         <div className='contents'>
           <table className='productDetail'>
+            <tr>
+              <th>상품ID</th>
+              <td>{id}</td>
+            </tr>
             <tr>
               <th>제조연월일</th>
               <td>당일</td>
@@ -94,9 +97,9 @@ const Test = () => {
           </table>
         </div>
         <div className='button_contain'>
-          <button type='button' className='buybtn'>
-            구매하기
-          </button>
+          <Clickable href={`/products/checkout/${id}`} className='button'>
+            <label>구매하기</label>
+          </Clickable>
         </div>
       </div>
     </div>
