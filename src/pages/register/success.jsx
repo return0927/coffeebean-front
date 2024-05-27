@@ -2,12 +2,12 @@ import './success.css';
 
 const SignInEnd = () => {
   const redirectToLogin = () => {
-    window.location.href = '/SignInPage';
+    window.location.href = '/login';
   };
 
   // 메인 페이지로 이동하는 함수
   const redirectToMain = () => {
-    window.location.href = '/MainPage';
+    window.location.href = '/';
   };
 
   return (

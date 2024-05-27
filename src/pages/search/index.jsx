@@ -1,29 +1,57 @@
-import { Link } from 'react-router-dom';
-import MainContainer from '../components/MainContainer';
-import Clickable from '../components/Clickable';
 import './index.css';
+import { useState } from 'react';
+import Clickable from '../../components/Clickable';
 
-/* PAGE INDEXES
-const subpages = [
-  '/login',
-  '/login/customer',
-  '/login/seller',
-  '/register',
-  '/products/',
-  '/products/1',
-  '/sellers',
-  '/sellers/1',
-  '/mypage',
-  '/mypage/orders',
-  '/mypage/requests',
-  '/partners',
-  '/partners/myproducts',
-  '/partners/requests',
-  '/partners/orders',
-];
-*/
+const selections = Object.freeze({
+  kind: ['Decaffeine', 'Blended', 'Cold Brew'],
+  amount: ['200g', '500g', '1kg'],
+  origin: ['Africa', 'Latin America', 'Asia', 'Pacific'],
+  sort: ['Popularity', 'Lowest Price', 'Highest Price', 'Newest', 'Oldest'],
+});
 
-const IndexPage = () => {
+const selectionBuilder = (
+  array,
+  handler,
+  selectedIndex,
+  selectedClass = 'active'
+) => {
+  return array.map((elem, index) => {
+    return (
+      <button
+        className={`search_category${index === selectedIndex ? ` ${selectedClass}` : ''}`}
+        data-filter={elem}
+        key={`${index} ${elem}`}
+        onClick={() => handler(index)}
+      >
+        {' '}
+        {elem}{' '}
+      </button>
+    );
+  });
+};
+
+const SearchPage = () => {
+  const [selectedKind, setSelectedKind] = useState(undefined);
+  const [selectedAmount, setSelectedAmount] = useState(undefined);
+  const [selectedOrigin, setSelectedOrigin] = useState(undefined);
+  const [selectedSort, setSelectedSort] = useState(undefined);
+
+  const handleKind = (index) => {
+    setSelectedKind((origin) => (origin === index ? undefined : index));
+  };
+
+  const handleAmount = (index) => {
+    setSelectedAmount((origin) => (origin === index ? undefined : index));
+  };
+
+  const handleOrigin = (index) => {
+    setSelectedOrigin((origin) => (origin === index ? undefined : index));
+  };
+
+  const handleSort = (index) => {
+    setSelectedSort((origin) => (origin === index ? undefined : index));
+  };
+
   return (
     <div className='MainContainer'>
       <div className='front_bar'>
@@ -31,9 +59,7 @@ const IndexPage = () => {
           <label>Recommend</label>
         </Clickable>
         <Clickable href={'africa/'}>
-          <div className='Africa'>
-            <label>Africa</label>
-          </div>
+          <label>Africa</label>
         </Clickable>
         <Clickable href={'latin_america/'}>
           <label>Latin America</label>
@@ -56,8 +82,30 @@ const IndexPage = () => {
         </Clickable>
       </div>
 
+      <div className='search_container'>
+        <div className='kind'>
+          <p>유형</p>
+          {selectionBuilder(selections.kind, handleKind, selectedKind)}
+        </div>
+
+        <div className='amount'>
+          <p>용량</p>
+          {selectionBuilder(selections.amount, handleAmount, selectedAmount)}
+        </div>
+
+        <div className='origin'>
+          <p>원산지</p>
+          {selectionBuilder(selections.origin, handleOrigin, selectedOrigin)}
+        </div>
+
+        <div className='sortby'>
+          <p>정렬기준</p>
+          {selectionBuilder(selections.sort, handleSort, selectedSort)}
+        </div>
+      </div>
+
       <div className='feature_name'>
-        <label>Featured Coffee Beans</label>
+        <label>Products</label>
       </div>
 
       <div className='feature_products'>
@@ -179,4 +227,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default SearchPage;
