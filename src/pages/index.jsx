@@ -3,6 +3,26 @@ import MainContainer from '../components/MainContainer';
 import Clickable from '../components/Clickable';
 import './index.css';
 
+/* PAGE INDEXES
+const subpages = [
+  '/login',
+  '/login/customer',
+  '/login/seller',
+  '/register',
+  '/products/',
+  '/products/1',
+  '/sellers',
+  '/sellers/1',
+  '/mypage',
+  '/mypage/orders',
+  '/mypage/requests',
+  '/partners',
+  '/partners/myproducts',
+  '/partners/requests',
+  '/partners/orders',
+];
+*/
+
 const IndexPage = () => {
   return (
     <div className='MainContainer'>

@@ -1,4 +1,5 @@
 .SignIn_Container{
+    width: 75%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -9,7 +10,6 @@
     gap: 100px; 
     margin-top: 50px;
     margin-bottom: 50px;
-
 }
 
 .Sign_In_Type{
@@ -18,7 +18,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-
 }
 
 .SignButton_Left{
@@ -32,8 +31,8 @@
     display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
-    background-color: #ffffff;
-    color: black;
+    background-color: black;
+    color: #ffffff;
 }
 
 .SignButton_Right{
@@ -48,8 +47,8 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    background-color: black;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: black;
 }
 
 .LogIn_Type{
@@ -101,7 +100,7 @@
 .SignInButton_Right {
     border: 1px solid #ababab;
     border-radius: 10px;
-    width: 150px; /* 버튼 너비를 120px로 증가 */
+    width: 150px;
     text-align: center;
     padding: 10px; 
     font-size: 15px;
@@ -119,5 +118,6 @@
     background-color: black;
     color: #ffffff;
 }
+
 
 

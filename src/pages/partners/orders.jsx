@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './orders.css';
+import './index.css';
+import Clickable from '../../components/Clickable';
 
 const OrderList = () => {
   const [loginInfo, setLoginInfo] = useState(undefined);
@@ -13,20 +14,19 @@ const OrderList = () => {
           <h3>Menu</h3>
           <ul>
             <li>
-              <a href='#' id='link'>
+              <Clickable href={'/partners/myProducts'}>
                 <i className='fa-solid fa-shop'></i> 상품 관리
-              </a>
+              </Clickable>
             </li>
             <li>
-              <a href='#' id='link'>
+              <Clickable href={'/partners/orders'}>
                 <i className='fa-solid list-check fa-list-check'></i> 주문 관리
-              </a>
+              </Clickable>
             </li>
             <li>
-              <a href='#' id='link'>
-                <i className='fa-solid comment-dot fa-comment-dots'></i> 요청
-                관리
-              </a>
+              <Clickable href={'/partners/requests'}>
+                <i className='fa-regular fa-comment-dots'></i> 주문제작 관리
+              </Clickable>
             </li>
           </ul>
         </nav>
