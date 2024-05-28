@@ -1,0 +1,146 @@
+.MainContainer{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Ensures all content is aligned vertically */
+    gap: 50px; 
+  }
+
+.front_bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #bbb;
+    padding: 10px;
+}
+
+
+.front_bar .Clickable {
+    text-align: center;
+    margin: 0 10px;
+  }
+  
+  .front_bar .Clickable div {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .front_bar .Clickable div:hover {
+    background-color: #cacaca;
+  }
+
+
+.search_engine{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: left;
+    height: 100%;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.front_bar .Clickable label {
+    font-size: 16px;
+    color: #333;
+  }
+
+.search_engine input {
+    width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+
+.search_engine img{
+    position: absolute;
+    cursor: pointer;
+    width: 17px;
+    top: 10px;
+    right: 12px;
+    margin: 0;
+}
+
+
+.feature_name {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.feature_products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .product_container {
+    width: calc(33.333% - 20px); /* Three items per row with some margin */
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .product_container:hover {
+    transform: scale(1.05);
+  }
+
+  .product_image {
+    position: relative;
+    width: 400px;
+    height: 300px;
+
+  }
+
+  .product_image img {
+    position: absolute;
+    transform: translate(50, 50);
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+  
+  .product_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    
+  }
+  
+  .product_info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .product_weight {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+  }
+  
+  .product_weight p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+  }

@@ -71,3 +71,8 @@
     background: #e3e3e3;
 }
 
+
+.button_contain{
+    display: flex;
+    justify-content: center;
+}
