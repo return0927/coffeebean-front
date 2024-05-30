@@ -1,7 +1,5 @@
 body{
     background-color: #f2f3f4;
-    font-family: "Gowun Dodum", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 
@@ -33,7 +31,7 @@ body{
     padding:0px;
     li{
         &:hover{
-            background-color: #1f1f1f;
+            background-color: #474747;
             border-radius: 10px;
             margin-left: 5px;
             margin-right: 5px;

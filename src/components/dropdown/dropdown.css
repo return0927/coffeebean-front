@@ -4,7 +4,7 @@
   }
   
   .dropdown-toggle {
-    background-color: #999D6B;
+    background-color: #000;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -21,7 +21,8 @@
   }
   
   .dropdown-menu li {
-    padding: 5px 5px;
+    list-style: none;
+    padding: 5px 5px 5px 0px;
     cursor: pointer;
   }
   

@@ -1,5 +1,5 @@
-import './index.css';
-import Clickable from '../../components/Clickable';
+import '../index.css';
+import Clickable from '../../../components/Clickable';
 
 const SignInPage = () => {
   // 다시 로그인 페이지로
@@ -47,31 +47,20 @@ const SignInPage = () => {
         </div>
 
         <div>
-          성
-          <input type='text' name='first_name' placeholder={'성'} />
-        </div>
-        <div>
-          이름
-          <input type='text' name='last_name' placeholder={'이름'} />
-        </div>
-
-        <div>성별</div>
-
-        <div className='SignInGender'>
-          <input type='radio' name='gender' placeholder='M' /> 남
-          <input type='radio' name='gender' placeholder='F' /> 여
+          사업자 이름
+          <input type='text' name='business_name' placeholder={'사업자 명'} />
         </div>
 
         <div>
-          생일
-          <input
-            type='date'
-            name='birthday'
-            value={'2024-05-20'}
-            min='1900-01-01'
-            max='2025-12-31'
-          />
+          사업자 주소
+          <input type='text' name='business_address' placeholder={'사업자 주소를 입력하세요'} />
         </div>
+        
+        <div>
+          사업자 전화번호
+          <input type='text' name='business_phonenumber' placeholder={'전화번호를 입력하세요'} />
+        </div>
+
         <div className='button_contain'>
           <button
             type='button'
