@@ -22,6 +22,7 @@ const subpages = [
   '/partners/myproducts',
   '/partners/requests',
   '/partners/orders',
+  '/custom/customorder',
 ];
 */
 
