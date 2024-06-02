@@ -1,0 +1,70 @@
+.seller-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* Ensures all content is aligned vertically */
+  gap: 0px; 
+}
+
+.seller-list-container h1 {
+  display: flex;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.seller-title label{
+  display: flex;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.seller-bar{
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.seller-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:flex-start;
+  padding: 5px;
+  list-style-type: none;
+  margin: 0;
+}
+
+.seller-list-item {
+  justify-content: space-around;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.seller-list-item:hover {
+  background-color: #f1f1f1;
+}
+
+.seller-link {
+  color: #000;
+  width: 750px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seller-link:hover {
+  text-decoration: underline;
+}

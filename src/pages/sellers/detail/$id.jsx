@@ -1,113 +1,40 @@
-import './index.css';
-import { useState } from 'react';
-import Clickable from '../../components/Clickable';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Clickable from '../../../components/Clickable';
+import './$id.css';
 
-const selections = Object.freeze({
-  kind: ['Decaffeine', 'Blended', 'Cold Brew'],
-  amount: ['200g', '500g', '1kg'],
-  origin: ['Africa', 'Latin America', 'Asia', 'Pacific'],
-  sort: ['Popularity', 'Lowest Price', 'Highest Price', 'Newest', 'Oldest'],
-});
+const sellers = [
+  { id: 'seller1', name: 'Seller 1', products: 5, details: '풍부하고 부드럽게' },
+  { id: 'seller2', name: 'Seller 2', products: 3, details: '자메이카에서 직접 공수' },
+  { id: 'seller3', name: 'Seller 3', products: 8, details: '13년 바리스타 경력의 블렌드 마스터' },
+  { id: 'seller4', name: 'Seller 4', products: 6, details: '100% 아라비카 커피만 취급' },
+];
 
-const selectionBuilder = (
-  array,
-  handler,
-  selectedIndex,
-  selectedClass = 'active'
-) => {
-  return array.map((elem, index) => {
-    return (
-      <button
-        className={`search_category${index === selectedIndex ? ` ${selectedClass}` : ''}`}
-        data-filter={elem}
-        key={`${index} ${elem}`}
-        onClick={() => handler(index)}
-      >
-        {' '}
-        {elem}{' '}
-      </button>
-    );
-  });
-};
+const SellerDetail = () => {
+  const { id } = useParams();
+  const seller = sellers.find(seller => seller.id === id);
 
-const SearchPage = () => {
-  const [selectedKind, setSelectedKind] = useState(undefined);
-  const [selectedAmount, setSelectedAmount] = useState(undefined);
-  const [selectedOrigin, setSelectedOrigin] = useState(undefined);
-  const [selectedSort, setSelectedSort] = useState(undefined);
-
-  const handleKind = (index) => {
-    setSelectedKind((origin) => (origin === index ? undefined : index));
-  };
-
-  const handleAmount = (index) => {
-    setSelectedAmount((origin) => (origin === index ? undefined : index));
-  };
-
-  const handleOrigin = (index) => {
-    setSelectedOrigin((origin) => (origin === index ? undefined : index));
-  };
-
-  const handleSort = (index) => {
-    setSelectedSort((origin) => (origin === index ? undefined : index));
-  };
+  if (!seller) {
+    return <div>Seller not found</div>;
+  }
 
   return (
-    <div className='MainContainer'>
-      <div className='front_bar'>
-        <Clickable href={'recommend/'}>
-          <label>Recommend</label>
-        </Clickable>
-        <Clickable href={'africa/'}>
-          <label>Africa</label>
-        </Clickable>
-        <Clickable href={'latin_america/'}>
-          <label>Latin America</label>
-        </Clickable>
-        <Clickable href={'asia_pacific/'}>
-          <label>Asia/Pacific</label>
-        </Clickable>
-        <Clickable href={'blended/'}>
-          <label>Blended</label>
-        </Clickable>
-        <Clickable href={'request/'}>
-          <label>Request</label>
-        </Clickable>
+    <div className="seller-detail-container">
+
+      <div>
+        <label className='seller-name'>
+          {seller.name}
+        </label>
       </div>
 
-      <div className='search_engine'>
-        <input type='text' placeholder={'원하는 원두 유형을 검색해보세요'} />
-        <Clickable href={'search/'}>
-          <img src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png'></img>
-        </Clickable>
+      <div>
+        <p className='seller-salespoint'>{seller.details}</p>
       </div>
 
-      <div className='search_container'>
-        <div className='kind'>
-          <p>유형</p>
-          {selectionBuilder(selections.kind, handleKind, selectedKind)}
-        </div>
-
-        <div className='amount'>
-          <p>용량</p>
-          {selectionBuilder(selections.amount, handleAmount, selectedAmount)}
-        </div>
-
-        <div className='origin'>
-          <p>원산지</p>
-          {selectionBuilder(selections.origin, handleOrigin, selectedOrigin)}
-        </div>
-
-        <div className='sortby'>
-          <p>정렬기준</p>
-          {selectionBuilder(selections.sort, handleSort, selectedSort)}
-        </div>
+      <div>
+        <p className='seller-count'>판매 물품 개수: {seller.products}</p>
       </div>
-
-      <div className='feature_name'>
-        <label>Products</label>
-      </div>
-
       <div className='feature_products'>
         <div className='product_container'>
           <div className='product_image'>
@@ -223,8 +150,10 @@ const SearchPage = () => {
           </div>
         </div>
       </div>
+
+      <Link to="/sellers">Back to Seller List -&gt;</Link>
     </div>
   );
 };
 
-export default SearchPage;
+export default SellerDetail;
