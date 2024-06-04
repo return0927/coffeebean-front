@@ -7,8 +7,6 @@ import { useRecoilValue } from 'recoil';
 const TopMenu = () => {
   const loginData = useRecoilValue(loginState);
 
-  console.log(loginData);
-
   const myPageBox = !loginData.loggedIn ? (
     <Clickable href={'/login'}>
       <div className='menu-content'>
