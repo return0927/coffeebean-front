@@ -56,7 +56,7 @@ const SearchPage = () => {
     <div className='MainContainer'>
       <div className='search_engine'>
         <input type='text' placeholder={'원하는 원두 유형을 검색해보세요'} />
-        <Clickable href={'search/'}>
+        <Clickable href={'/search/'}>
           <img src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png'></img>
         </Clickable>
       </div>
@@ -101,7 +101,7 @@ const SearchPage = () => {
           </div>
           <div className='product_weight'>
             <p>200g</p>
-            <Clickable href={'products/1'}>
+            <Clickable href={'/products/1'}>
               <p>+더보기</p>
             </Clickable>
           </div>
@@ -120,7 +120,7 @@ const SearchPage = () => {
           </div>
           <div className='product_weight'>
             <p>500g</p>
-            <Clickable href={'products/2'}>
+            <Clickable href={'/products/2'}>
               <p>+더보기</p>
             </Clickable>
           </div>
@@ -139,7 +139,7 @@ const SearchPage = () => {
           </div>
           <div className='product_weight'>
             <p>500g</p>
-            <Clickable href={'products/3'}>
+            <Clickable href={'/products/3'}>
               <p>+더보기</p>
             </Clickable>
           </div>
@@ -158,7 +158,7 @@ const SearchPage = () => {
           </div>
           <div className='product_weight'>
             <p>500g</p>
-            <Clickable href={'products/4'}>
+            <Clickable href={'/products/4'}>
               <p>+더보기</p>
             </Clickable>
           </div>
@@ -177,7 +177,7 @@ const SearchPage = () => {
           </div>
           <div className='product_weight'>
             <p>200g</p>
-            <Clickable href={'products/5'}>
+            <Clickable href={'/products/5'}>
               <p>+더보기</p>
             </Clickable>
           </div>
@@ -196,7 +196,7 @@ const SearchPage = () => {
           </div>
           <div className='product_weight'>
             <p>500g</p>
-            <Clickable href={'products/6'}>
+            <Clickable href={'/products/6'}>
               <p>+더보기</p>
             </Clickable>
           </div>
