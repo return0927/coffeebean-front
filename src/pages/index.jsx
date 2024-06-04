@@ -29,7 +29,6 @@ const subpages = [
 const IndexPage = () => {
   return (
     <div className='MainContainer'>
-
       <div className='search_engine'>
         <input type='text' placeholder={'원하는 원두 유형을 검색해보세요'} />
         <Clickable href={'search/'}>
