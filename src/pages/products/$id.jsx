@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './id.css';
 
+// 1000단위로 표시하는 함수
+const formatPrice = (price) => {
+  if (price >= 1000) {
+    return price.toLocaleString();
+  }
+  return price;
+};
+
 // [id] 처럼 매칭하는 방법은 https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes 를 참고해주세요
 const ProductDetail = () => {
   const { id } = useParams();
@@ -40,7 +48,7 @@ const ProductDetail = () => {
             <input type="text" value={quantity} readOnly />
             <button onClick={() => handleQuantityChange(1)}>+</button>
           </li>
-          <li>판매가: {data.price*quantity}원</li>
+          <li>판매가: {formatPrice(data.price*quantity)}원</li>
         </ul>
         <button className="buy-button">BUY</button>
       </div>
