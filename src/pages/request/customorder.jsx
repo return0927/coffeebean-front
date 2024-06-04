@@ -7,11 +7,30 @@ const selections = {
   greenkind: ['Washed', 'Natural'],
   amount: ['500g', '1kg', '2kg', '5kg', '10kg', '50kg', '100kg'],
   origin: ['Africa', 'Latin America', 'Asia', 'Pacific'],
-  roasting: ['Light', 'Cinnamon', 'Medium', 'High', 'City', 'French', 'Italian'],
-  grind: ['Espresso machine', 'Moka Pot', 'Drip Coffee', 'French Press', 'Cold Brew'],
+  roasting: [
+    'Light',
+    'Cinnamon',
+    'Medium',
+    'High',
+    'City',
+    'French',
+    'Italian',
+  ],
+  grind: [
+    'Espresso machine',
+    'Moka Pot',
+    'Drip Coffee',
+    'French Press',
+    'Cold Brew',
+  ],
 };
 
-const selectionBuilder = (array, handler, selectedIndex, selectedClass = 'active') => {
+const selectionBuilder = (
+  array,
+  handler,
+  selectedIndex,
+  selectedClass = 'active'
+) => {
   return array.map((elem, index) => (
     <button
       className={`search_category${index === selectedIndex ? ` ${selectedClass}` : ''}`}
@@ -84,10 +103,9 @@ const SearchPage = () => {
       </div>
 
       <div className='search_container'>
-        
         <div className='seller'>
-          <label htmlFor="seller-input">판매자</label>
-          <input type="text" id="seller-input" placeholder="Input text" />
+          <label htmlFor='seller-input'>판매자</label>
+          <input type='text' id='seller-input' placeholder='Input text' />
         </div>
 
         <div className='kind'>
@@ -100,10 +118,13 @@ const SearchPage = () => {
         <div className='greenkind'>
           <p>생두</p>
           <div className='scrollable-container'>
-            {selectionBuilder(selections.greenkind, handleGreenkind, selectedGreenkind)}
+            {selectionBuilder(
+              selections.greenkind,
+              handleGreenkind,
+              selectedGreenkind
+            )}
           </div>
         </div>
-
 
         <div className='amount'>
           <p>용량</p>
@@ -122,7 +143,11 @@ const SearchPage = () => {
         <div className='roasting'>
           <p>로스팅</p>
           <div className='scrollable-container'>
-            {selectionBuilder(selections.roasting, handleRoasting, selectedRoasting)}
+            {selectionBuilder(
+              selections.roasting,
+              handleRoasting,
+              selectedRoasting
+            )}
           </div>
         </div>
 
@@ -134,17 +159,15 @@ const SearchPage = () => {
         </div>
 
         <div className='price'>
-          <label htmlFor="price-input">가격제안 (원)</label>
-          <input type="text" id="price-input" placeholder="숫자를 입력하세요" />
+          <label htmlFor='price-input'>가격제안 (원)</label>
+          <input type='text' id='price-input' placeholder='숫자를 입력하세요' />
         </div>
 
         <div className='button-container'>
           <button className='custom-button'>신청</button>
           <button className='custom-button'>취소</button>
         </div>
-
       </div>
-
     </div>
   );
 };
