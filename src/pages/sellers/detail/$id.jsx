@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import Clickable from '../../../components/Clickable';
@@ -12,12 +12,11 @@ const SellerDetail = () => {
     async function fetcher() {
       const response = await fetch(`/sellers/${id}`);
       const body = await response.json();
-      console.log(body);
       setSeller(body);
     }
 
     fetcher();
-  }, []);
+  }, [id]);
 
   if (!seller) return <div>데이터를 불러오는 중</div>;
 

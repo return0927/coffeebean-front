@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import './index.css';
 
 const SellerList = () => {
-  const { id } = useParams();
   const [data, setData] = useState(undefined);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const SellerList = () => {
 
       <div className='seller-bar'>
         <label>ID</label>
-        <label>판매 물품수</label>
+        <label>상호명</label>
       </div>
 
       <ul className='seller-list'>
