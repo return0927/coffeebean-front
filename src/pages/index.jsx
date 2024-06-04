@@ -11,6 +11,8 @@ const subpages = [
   '/register',
   '/products/',
   '/products/1',
+  '/products/checkout/1',  // 추가된 경로
+  '/products/checkout/2',  // 추가된 경로
   '/sellers',
   '/sellers/1',
   '/mypage',
@@ -20,6 +22,7 @@ const subpages = [
   '/partners/myproducts',
   '/partners/requests',
   '/partners/orders',
+  '/custom/customorder',
 ];
 */
 

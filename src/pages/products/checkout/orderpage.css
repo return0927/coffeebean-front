@@ -1,0 +1,251 @@
+/* src/pages/products/checkout/orderpage.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #f8f8f8;
+
+}
+
+.order-page {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 20px;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.nav input {
+    padding: 5px;
+}
+
+main {
+    margin-top: 20px;
+    width: 100%;
+}
+
+h1 {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+section {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.shipping-info,
+.order-summary,
+.payment-info,
+.payment-method,
+.terms {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    align-items: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-group-in {
+    display: flex;
+    align-items: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-group label {
+    flex: 1 1 1;
+    min-width: 100px;
+    /* 최소 너비 설정 */
+}
+
+.form-group button {
+    margin-right: 10px;
+    /* 라디오 버튼과 텍스트 사이에 여백 추가 */
+}
+
+.form-group input {
+    margin-right: 10px;
+    /* 라디오 버튼과 텍스트 사이에 여백 추가 */
+    width: 180;
+}
+
+.form-group-in input {
+    margin-right: 10px;
+    /* 라디오 버튼과 텍스트 사이에 여백 추가 */
+    width: 35%;
+}
+
+.form-group-in label {
+    flex: 1 1 1;
+    min-width: 100px;
+    /* 최소 너비 설정 */
+}
+
+
+.order-summary,
+.payment-info,
+.payment-method,
+.terms {
+    padding-top: 20px;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    margin-right: 20px;
+}
+
+.product-info {
+    justify-content: space-between;
+}
+
+.product-info p {
+    justify-content: space-between;
+}
+
+.shipping-fee,
+.payment-details p {
+    text-align: right;
+}
+
+.payment-method .form-group {
+    flex-direction: column;
+}
+
+.payment-method .form-group label {
+    margin-bottom: 5px;
+}
+
+.terms label {
+    display: flex;
+    align-items: center;
+}
+
+.terms-container {
+    margin: 20px;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.terms-content {
+    max-height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.terms-checkbox input {
+    margin-right: 10px;
+}
+
+.terms-button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.terms-button:hover {
+    background-color: #333;
+}
+
+
+.terms .buttons {
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+}
+
+.terms button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.terms button:first-child {
+    background-color: #ccc;
+}
+
+.terms button:last-child {
+    background-color: #000;
+    color: #fff;
+}
