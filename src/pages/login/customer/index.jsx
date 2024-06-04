@@ -1,15 +1,62 @@
 import '../login.css';
+import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 import MainContainer from '../../../components/MainContainer';
+import loginState from '../../../state';
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useRecoilState(loginState);
+
+  const [loginId, setLoginId] = useState('');
+  const [password, setPassword] = useState('');
+
   // 회원가입 페이지
   const redirectSignup = () => {
     window.location.href = '/register/personal/';
   };
 
   // 로그인 완료 후 메인으로 이동
-  const redirectTomain = () => {
-    window.location.href = '/';
+  const handleLogin = async () => {
+    const resp = await fetch(`/login/customer`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        loginId,
+        password,
+      }),
+    });
+    const data = await resp.json();
+
+    /* on error */
+    if (data.error) {
+      const { message } = data;
+      alert(`로그인에 실패했습니다. (${message})`);
+      navigate(0);
+    } else {
+      const { token: tokenData, firstName, lastName } = data;
+      const { token } = tokenData;
+      const accountType = tokenData.authScope.type;
+
+      setLoginData((before) => {
+        return {
+          ...before,
+          loggedIn: true,
+          accountType,
+          token,
+          meta: {
+            firstName,
+            lastName,
+          },
+        };
+      });
+
+      alert(`환영합니다, ${firstName} ${lastName} 님!`);
+      navigate('/');
+    }
   };
 
   return (
@@ -32,7 +79,8 @@ const SignUpPage = () => {
             ID
             <input
               type='text'
-              name='first_name'
+              value={loginId}
+              onChange={(e) => setLoginId(e.target.value)}
               placeholder={'Enter your ID'}
             />
             <p> e.g. 12345 </p>
@@ -40,8 +88,9 @@ const SignUpPage = () => {
           <div>
             Password
             <input
-              type='text'
-              name='last_name'
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder={'Enter your password'}
             />
             <p> e.g. 12345 </p>
@@ -57,7 +106,7 @@ const SignUpPage = () => {
             <button
               type='button'
               className='SignInButton_Right'
-              onClick={redirectTomain}
+              onClick={handleLogin}
             >
               로그인하기
             </button>

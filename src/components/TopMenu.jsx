@@ -1,31 +1,34 @@
 import { useState } from 'react';
 import Clickable from './Clickable';
 import './TopMenu.css';
+import loginState from '../state';
+import { useRecoilValue } from 'recoil';
 
 const TopMenu = () => {
-  const [loginInfo] = useState(undefined);
+  const loginData = useRecoilValue(loginState);
 
-  const myPageBox =
-    loginInfo === undefined ? (
-      <Clickable href={'/login'}>
+  console.log(loginData);
+
+  const myPageBox = !loginData.loggedIn ? (
+    <Clickable href={'/login'}>
+      <div className='menu-content'>
+        <label>Login</label>
+      </div>
+    </Clickable>
+  ) : (
+    <>
+      <Clickable href={'/mypage'}>
         <div className='menu-content'>
-          <label>Login</label>
+          <label>MyPage</label>
         </div>
       </Clickable>
-    ) : (
-      <>
-        <Clickable href={'/mypage'}>
-          <div className='menu-content'>
-            <label>MyPage</label>
-          </div>
-        </Clickable>
-        <Clickable href={'/logout'}>
-          <div className='menu-content'>
-            <label>LogOut</label>
-          </div>
-        </Clickable>
-      </>
-    );
+      <Clickable href={'/logout'}>
+        <div className='menu-content'>
+          <label>LogOut</label>
+        </div>
+      </Clickable>
+    </>
+  );
 
   return (
     <div className='top-menu'>
