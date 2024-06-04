@@ -40,6 +40,7 @@ const SignUpPage = () => {
       const { token: tokenData, firstName, lastName } = data;
       const { token } = tokenData;
       const accountType = tokenData.authScope.type;
+      const name = `${firstName}${lastName}`;
 
       setLoginData((before) => {
         return {
@@ -48,8 +49,7 @@ const SignUpPage = () => {
           accountType,
           token,
           meta: {
-            firstName,
-            lastName,
+            name,
           },
         };
       });

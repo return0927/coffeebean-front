@@ -1,15 +1,61 @@
 import '../login.css';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { useState } from 'react';
+import loginState from '../../../state';
 import MainContainer from '../../../components/MainContainer';
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useRecoilState(loginState);
+
+  const [loginId, setLoginId] = useState('');
+  const [password, setPassword] = useState('');
+
   // 회원가입 페이지
   const redirectSignup = () => {
-    window.location.href = '/register/business/';
+    navigate('/register/business/');
   };
 
   // 로그인 완료 후 메인으로 이동
-  const redirectTomain = () => {
-    window.location.href = '/';
+  const handleLogin = async () => {
+    const resp = await fetch(`/login/producer`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        loginId,
+        password,
+      }),
+    });
+    const data = await resp.json();
+
+    /* on error */
+    if (data.error) {
+      const { message } = data;
+      alert(`로그인에 실패했습니다. (${message})`);
+      navigate(0);
+    } else {
+      const { token: tokenData, businessName: name } = data;
+      const { token } = tokenData;
+      const accountType = tokenData.authScope.type;
+
+      setLoginData((before) => {
+        return {
+          ...before,
+          loggedIn: true,
+          accountType,
+          token,
+          meta: {
+            name,
+          },
+        };
+      });
+
+      alert(`환영합니다, ${name} 님!`);
+      navigate('/');
+    }
   };
 
   return (
@@ -29,17 +75,14 @@ const SignUpPage = () => {
 
         <div className='SignIn_Block'>
           <div>
-            Seller ID
-            <input
-              type='seller_id'
-              name='seller_id'
-              placeholder={'Enter your Seller ID'}
-            />
-            <p> e.g. Sell123 </p>
-          </div>
-          <div>
             ID
-            <input type='id' name='id' placeholder={'Enter your ID'} />
+            <input
+              type='text'
+              name='id'
+              value={loginId}
+              onChange={(e) => setLoginId(e.target.value)}
+              placeholder={'Enter your ID'}
+            />
             <p> e.g. 12345 </p>
           </div>
           <div>
@@ -47,6 +90,8 @@ const SignUpPage = () => {
             <input
               type='password'
               name='pw'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder={'Enter your password'}
             />
             <p> e.g. 12345 </p>
@@ -62,7 +107,7 @@ const SignUpPage = () => {
             <button
               type='button'
               className='SignInButton_Right'
-              onClick={redirectTomain}
+              onClick={handleLogin}
             >
               로그인하기
             </button>
