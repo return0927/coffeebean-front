@@ -9,23 +9,35 @@
   }
   
   .product-image {
-    width: 400px;
-    height: auto;
-    background-color: #d0d0d0f6; /*임시*/
-    margin-right: 20px;
+    width: 350px;
+    height: 350px;
+    margin-right: 40px;
+    align-content: center;
+  }
+
+  .product-image  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8%;
+    border: 10px solid white; 
   }
   
   .product-info {
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: bold;
     width: 600px;
     padding-left: 20px;
+    padding-bottom: 10px;
     justify-content: center;
-    border: 1px solid #ccc; 
+    background-color: white;
   }
   
   .product-info h1 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 18pt;
+    font-family: 'NanumBarunGothicBold';
+    border-bottom: 1px solid #ccc;
+    gap: 10px;
   }
   
   .product-info ul {

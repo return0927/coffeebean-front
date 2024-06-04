@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './id.css';
 
+// 결제 완료 페이지로 이동 (동일한 결제 완료 페이지로 이동)
+const SuccessPage = () => {
+    window.location.href = '/products/success';
+  }
+
 // 1000단위로 표시하는 함수
 const formatPrice = (price) => {
   if (price >= 1000) {
@@ -18,7 +23,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     async function fetcher() {
-      const response = await fetch(`/products/${id}`);
+      const response = await fetch(`/products/1${id}`);
       const body = await response.json();
       setData(body);
     }
@@ -33,9 +38,13 @@ const ProductDetail = () => {
   if (data === undefined) return <>Loading...</>;
   return (
     <div className="product-detail-container">
-      <div className="product-image">이미지</div>
+      <div className="product-image"> <img
+              src={data.imageUrl}
+            ></img></div>
       <div className="product-info">
-        <h1>{data.name}</h1>
+        <h1>
+          <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet"></link>
+          {data.brandName}'s 원두커피 {data.quantity}g </h1>
         <ul>
           <li>원산지: {data.origins}</li>
           <li>용량: {data.quantity}g</li>
@@ -50,7 +59,7 @@ const ProductDetail = () => {
           </li>
           <li>판매가: {formatPrice(data.price*quantity)}원</li>
         </ul>
-        <button className="buy-button">BUY</button>
+        <button className="buy-button" onClick={SuccessPage}>BUY</button>          
       </div>
     </div>
   );
