@@ -39,6 +39,7 @@
   font-weight: bold;
 }
 .feature_products {
+  width: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

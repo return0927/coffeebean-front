@@ -8,7 +8,7 @@ const SellerList = () => {
 
   useEffect(() => {
     async function fetcher() {
-      const response = await fetch(`/sellers/`);
+      const response = await fetch(`/sellers/?size=25`);
       const body = await response.json();
       setData(body);
     }
