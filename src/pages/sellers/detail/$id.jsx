@@ -1,46 +1,38 @@
-import { Link } from 'react-router-dom';
-import MainContainer from '../components/MainContainer';
-import Clickable from '../components/Clickable';
-import './index.css';
+import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-/* PAGE INDEXES
-const subpages = [
-  '/login',
-  '/login/customer',
-  '/login/seller',
-  '/register',
-  '/products/',
-  '/products/1',
-  '/products/checkout/1',  // 추가된 경로
-  '/products/checkout/2',  // 추가된 경로
-  '/sellers',
-  '/sellers/1',
-  '/mypage',
-  '/mypage/orders',
-  '/mypage/requests',
-  '/partners',
-  '/partners/myproducts',
-  '/partners/requests',
-  '/partners/orders',
-  '/custom/customorder',
-];
-*/
+import Clickable from '../../../components/Clickable';
+import './$id.css';
 
-const IndexPage = () => {
+const SellerDetail = () => {
+  const { id } = useParams();
+  const [seller, setSeller] = useState(undefined);
+
+  useEffect(() => {
+    async function fetcher() {
+      const response = await fetch(`/sellers/${id}`);
+      const body = await response.json();
+      setSeller(body);
+    }
+
+    fetcher();
+  }, [id]);
+
+  if (!seller) return <div>데이터를 불러오는 중</div>;
+
   return (
-    <div className='MainContainer'>
-
-      <div className='search_engine'>
-        <input type='text' placeholder={'원하는 원두 유형을 검색해보세요'} />
-        <Clickable href={'search/'}>
-          <img src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png'></img>
-        </Clickable>
+    <div className='seller-detail-container'>
+      <div>
+        <label className='seller-name'>{seller.companyName}</label>
       </div>
 
-      <div className='feature_name'>
-        <label>Featured Coffee Beans</label>
+      <div>
+        <p className='seller-salespoint'>{seller.businessAddress}</p>
       </div>
 
+      <div>
+        <p className='seller-count'>판매 물품 개수: {seller.id}</p>
+      </div>
       <div className='feature_products'>
         <div className='product_container'>
           <div className='product_image'>
@@ -156,8 +148,10 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
+
+      <Link to='/sellers'>Back to Seller List -&gt;</Link>
     </div>
   );
 };
 
-export default IndexPage;
+export default SellerDetail;
