@@ -24,7 +24,7 @@ const OrderPage = () => {
     <div className={styles['order-page']}>
       <main>
         <h1>주문/결제 - Order ID: {id}</h1>
-        <section className={style['shipping-info']}>
+        <section className={styles['shipping-info']}>
           <h2>배송지 입력</h2>
           <form>
             <div className={styles['form-group']}>
