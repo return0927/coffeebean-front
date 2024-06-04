@@ -1,12 +1,10 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+
 import Clickable from '../../../components/Clickable';
 import './$id.css';
 
 const SellerDetail = () => {
-
   const { id } = useParams();
   const [seller, setSeller] = useState(undefined);
 
@@ -20,18 +18,13 @@ const SellerDetail = () => {
 
     fetcher();
   }, []);
-  
-  if (!seller) return (<div>
-    데이터를 불러오는 중
-  </div>);
+
+  if (!seller) return <div>데이터를 불러오는 중</div>;
 
   return (
-    <div className="seller-detail-container">
-
+    <div className='seller-detail-container'>
       <div>
-        <label className='seller-name'>
-          {seller.companyName}
-        </label>
+        <label className='seller-name'>{seller.companyName}</label>
       </div>
 
       <div>
@@ -157,7 +150,7 @@ const SellerDetail = () => {
         </div>
       </div>
 
-      <Link to="/sellers">Back to Seller List -&gt;</Link>
+      <Link to='/sellers'>Back to Seller List -&gt;</Link>
     </div>
   );
 };
