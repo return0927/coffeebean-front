@@ -1,0 +1,65 @@
+
+
+
+
+.product-detail-container {
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+  }
+  
+  .product-image {
+    width: 400px;
+    height: auto;
+    background-color: #d0d0d0f6; /*임시*/
+    margin-right: 20px;
+  }
+  
+  .product-info {
+    font-size: 12pt;
+    font-weight: bold;
+    width: 600px;
+    padding-left: 20px;
+    justify-content: center;
+    border: 1px solid #ccc; 
+  }
+  
+  .product-info h1 {
+    margin-bottom: 20px;
+  }
+  
+  .product-info ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-info li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-info li select {
+    justify-content: space-between;
+    margin-left: 5px;
+  }
+  
+  .product-info li button {
+    width: 50px;
+    margin: 5 5px;
+  }
+  
+  .product-info .buy-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .product-info .buy-button:hover {
+    background-color: #333;
+  }
+  
