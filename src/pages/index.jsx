@@ -29,29 +29,6 @@ const subpages = [
 const IndexPage = () => {
   return (
     <div className='MainContainer'>
-      <div className='front_bar'>
-        <Clickable href={'recommend/'}>
-          <label>Recommend</label>
-        </Clickable>
-        <Clickable href={'africa/'}>
-          <div className='Africa'>
-            <label>Africa</label>
-          </div>
-        </Clickable>
-        <Clickable href={'latin_america/'}>
-          <label>Latin America</label>
-        </Clickable>
-        <Clickable href={'asia_pacific/'}>
-          <label>Asia/Pacific</label>
-        </Clickable>
-        <Clickable href={'blended/'}>
-          <label>Blended</label>
-        </Clickable>
-        <Clickable href={'request/'}>
-          <label>Request</label>
-        </Clickable>
-      </div>
-
       <div className='search_engine'>
         <input type='text' placeholder={'원하는 원두 유형을 검색해보세요'} />
         <Clickable href={'search/'}>

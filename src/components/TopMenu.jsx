@@ -39,7 +39,7 @@ const TopMenu = () => {
             <span>Home</span>
           </div>
         </Clickable>
-        <Clickable href={'/products'}>
+        <Clickable href={'/search'}>
           <div className='menu-content'>
             <span>Products</span>
           </div>
