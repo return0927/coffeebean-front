@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './id.css';
+import styles from './id.module.css';
 
 // 결제 완료 페이지로 이동 (동일한 결제 완료 페이지로 이동)
 const SuccessPage = () => {
@@ -37,12 +37,12 @@ const ProductDetail = () => {
 
   if (data === undefined) return <>Loading...</>;
   return (
-    <div className='product-detail-container'>
-      <div className='product-image'>
+    <div className={styles['product-detail-container']}>
+      <div className={styles['product-image']}>
         {' '}
         <img src={data.imageUrl}></img>
       </div>
-      <div className='product-info'>
+      <div className={styles['product-info']}>
         <h1>
           <link
             href='https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css'
@@ -64,7 +64,7 @@ const ProductDetail = () => {
           </li>
           <li>판매가: {formatPrice(data.price * quantity)}원</li>
         </ul>
-        <button className='buy-button' onClick={SuccessPage}>
+        <button className={styles['buy-button']} onClick={SuccessPage}>
           BUY
         </button>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './orderpage.css';
+import styles from './orderpage.module.css';
 
 const OrderPage = () => {
   const { id } = useParams();
@@ -21,59 +21,59 @@ const OrderPage = () => {
   };
 
   return (
-    <div className='order-page'>
+    <div className={styles['order-page']}>
       <main>
         <h1>주문/결제 - Order ID: {id}</h1>
-        <section className='shipping-info'>
+        <section className={style['shipping-info']}>
           <h2>배송지 입력</h2>
           <form>
-            <div className='form-group'>
+            <div className={styles['form-group']}>
               <label>받는사람</label>
               <input type='text' placeholder='Input text' />
             </div>
-            <div className='form-group'>
+            <div className={styles['form-group']}>
               <label>주소</label>
               <input type='text' placeholder='Input text' />
               <button type='button'>검색</button>
             </div>
-            <div className='form-group-in'>
+            <div className={styles['form-group-in']}>
               <label> </label>
               <input type='text' placeholder='Input text' />
             </div>
-            <div className='form-group-in'>
+            <div className={styles['form-group-in']}>
               <label> </label>
               <input type='text' placeholder='Input text' />
             </div>
-            <div className='form-group'>
+            <div className={styles['form-group']}>
               <label>휴대전화</label>
               <input type='text' placeholder='Input text' />
             </div>
           </form>
         </section>
-        <section className='order-summary'>
+        <section className={styles['order-summary']}>
           <h2>주문상품</h2>
-          <div className='product'>
-            <div className='product-image'></div>
-            <div className='product-info'>
+          <div className={styles.product}>
+            <div className={styles['product-image']}></div>
+            <div className={styles['product-info']}>
               <p>이건 상품 이름</p>
               <p>수량 : 1개</p>
               <p>25000원</p>
             </div>
           </div>
-          <div className='shipping-fee'>배송비 3000원</div>
+          <div className={styles['shipping-fee']}>배송비 3000원</div>
         </section>
-        <section className='payment-info'>
+        <section className={styles['payment-info']}>
           <h2>결제정보</h2>
-          <div className='payment-details'>
+          <div className={styles['payment-details']}>
             <p>주문상품 25000원</p>
             <p>배송비 3000원</p>
             <p>총액 28000원</p>
           </div>
         </section>
-        <section className='payment-method'>
+        <section className={styles['payment-method']}>
           <h2>결제수단</h2>
           <form>
-            <div className='form-group'>
+            <div className={styles['form-group']}>
               <label>
                 <input type='radio' name='payment' value='bank' /> 계좌이체
               </label>
@@ -86,14 +86,14 @@ const OrderPage = () => {
             </div>
           </form>
         </section>
-        <section className='terms'>
+        <section className={styles.terms}>
           <label>
             <input type='checkbox' /> 모든 내용을 확인하였으며 구매 조건에
             동의합니다
           </label>
-          <div className='terms-container'>
+          <div className={styles['terms-container']}>
             <h2>이용 약관</h2>
-            <div className='terms-content'>
+            <div className={styles['terms-content']}>
               <p>
                 전자상거래(인터넷사이버몰) 표준약관 표준약관 제10023호 (2015. 6.
                 26. 개정) 제1조(목적) 이 약관은 OO 회사(전자상거래 사업자)가
@@ -393,7 +393,7 @@ const OrderPage = () => {
               {/* 더 많은 약관 내용을 추가하세요 */}
             </div>
             <form onSubmit={handleSubmit}>
-              <label className='terms-checkbox'>
+              <label className={styles['terms-checkbox']}>
                 <input
                   type='checkbox'
                   checked={isChecked}
@@ -401,12 +401,12 @@ const OrderPage = () => {
                 />
                 약관에 동의합니다.
               </label>
-              <button type='submit' className='terms-button'>
+              <button type='submit' className={styles['terms-button']}>
                 제출
               </button>
             </form>
           </div>
-          <div className='buttons'>
+          <div className={styles.buttons}>
             <button type='button'>취소하기</button>
             <button type='button'>결제하기</button>
           </div>

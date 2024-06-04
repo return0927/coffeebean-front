@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 const SellerList = () => {
@@ -10,7 +10,6 @@ const SellerList = () => {
     async function fetcher() {
       const response = await fetch(`/sellers/`);
       const body = await response.json();
-      console.log(body);
       setData(body);
     }
 
