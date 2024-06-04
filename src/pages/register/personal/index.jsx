@@ -80,7 +80,11 @@ const SignInPage = () => {
 
         <div>
           전화번호
-          <input type='text' name='phonenumber' placeholder={'전화번호를 입력하세요'} />
+          <input
+            type='text'
+            name='phonenumber'
+            placeholder={'전화번호를 입력하세요'}
+          />
         </div>
 
         <div className='button_contain'>

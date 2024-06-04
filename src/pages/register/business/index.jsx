@@ -53,12 +53,20 @@ const SignInPage = () => {
 
         <div>
           사업자 주소
-          <input type='text' name='business_address' placeholder={'사업자 주소를 입력하세요'} />
+          <input
+            type='text'
+            name='business_address'
+            placeholder={'사업자 주소를 입력하세요'}
+          />
         </div>
-        
+
         <div>
           사업자 전화번호
-          <input type='text' name='business_phonenumber' placeholder={'전화번호를 입력하세요'} />
+          <input
+            type='text'
+            name='business_phonenumber'
+            placeholder={'전화번호를 입력하세요'}
+          />
         </div>
 
         <div className='button_contain'>
