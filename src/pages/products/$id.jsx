@@ -48,7 +48,7 @@ const ProductDetail = () => {
             href='https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css'
             rel='stylesheet'
           ></link>
-          {data.brandName}&apos;s 원두커피 {data.quantity}g{' '}
+          {data.name} {data.quantity}g
         </h1>
         <ul>
           <li>원산지: {data.origins}</li>
