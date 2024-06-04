@@ -1,39 +1,45 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Clickable from '../../../components/Clickable';
 import './$id.css';
 
-const sellers = [
-  { id: 'seller1', name: 'Seller 1', products: 5, details: '풍부하고 부드럽게' },
-  { id: 'seller2', name: 'Seller 2', products: 3, details: '자메이카에서 직접 공수' },
-  { id: 'seller3', name: 'Seller 3', products: 8, details: '13년 바리스타 경력의 블렌드 마스터' },
-  { id: 'seller4', name: 'Seller 4', products: 6, details: '100% 아라비카 커피만 취급' },
-];
-
 const SellerDetail = () => {
-  const { id } = useParams();
-  const seller = sellers.find(seller => seller.id === id);
 
-  if (!seller) {
-    return <div>Seller not found</div>;
-  }
+  const { id } = useParams();
+  const [seller, setSeller] = useState(undefined);
+
+  useEffect(() => {
+    async function fetcher() {
+      const response = await fetch(`/sellers/${id}`);
+      const body = await response.json();
+      console.log(body);
+      setSeller(body);
+    }
+
+    fetcher();
+  }, []);
+  
+  if (!seller) return (<div>
+    데이터를 불러오는 중
+  </div>);
 
   return (
     <div className="seller-detail-container">
 
       <div>
         <label className='seller-name'>
-          {seller.name}
+          {seller.companyName}
         </label>
       </div>
 
       <div>
-        <p className='seller-salespoint'>{seller.details}</p>
+        <p className='seller-salespoint'>{seller.businessAddress}</p>
       </div>
 
       <div>
-        <p className='seller-count'>판매 물품 개수: {seller.products}</p>
+        <p className='seller-count'>판매 물품 개수: {seller.id}</p>
       </div>
       <div className='feature_products'>
         <div className='product_container'>
