@@ -43,7 +43,6 @@ const SearchPage = () => {
       const resp = await fetch(`/products/`);
       const payload = await resp.json();
 
-      console.log(payload);
       setProducts(payload);
     })();
   }, []);
