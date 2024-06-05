@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import '../index.css';
+import { useRecoilState } from 'recoil';
 import Clickable from '../../../components/Clickable';
+import loginState from '../../../state';
 
 const OrderList = () => {
+  const [loginData] = useRecoilState(loginState);
   const [products, setProducts] = useState([]);
+
+  const { token } = loginData;
 
   useEffect(() => {
     const fetchProductsBySeller = async () => {
-      const resp = await fetch('/api/products/my');
+      const resp = await fetch('/products/my', { token });
       const data = await resp.json();
+
       // 출력할 제품 정보들
       const filteredProducts = data.map((product) => ({
         name: product.name,
@@ -17,14 +23,12 @@ const OrderList = () => {
         quantity: product.quantity,
         price: product.price,
       }));
+
       setProducts(filteredProducts);
     };
-    fetchProductsBySeller();
-  }, []);
 
-  // 로그인된 경우는 어떻게 설정해야하는지..?
-  const [loginInfo, setLoginInfo] = useState(undefined);
-  const myPageBox = loginInfo === undefined;
+    fetchProductsBySeller();
+  }, [token]);
 
   return (
     <div>
