@@ -10,21 +10,21 @@ const SignInPage = () => {
   const navigate = useNavigate();
   const setLoginData = useRecoilState(loginState)[1];
 
-  const [loginId, setLoginId] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [loginId, setLoginId] = useState('sassass');
+  const [password, setPassword] = useState('1234');
+  const [passwordCheck, setPasswordCheck] = useState('1234');
+  const [firstName, setFirstName] = useState('새');
+  const [lastName, setLastName] = useState('탭');
   const [gender, setGender] = useState(0);
   const [birthday, setBirthday] = useState('2001-01-01');
-  const [address, setAddress] = useState('');
-  const [phone, setPHone] = useState('');
+  const [address, setAddress] = useState('dummy');
+  const [phone, setPHone] = useState('01028323234');
 
   // 다시 로그인 페이지로
   const redirectToLogin = () => {
     window.location.href = '/login';
   };
-
+  // gender는 항상 값이 있으니까 유효성검사를 하지않음, address
   const validateInputs = () => {
     if (
       [
@@ -33,9 +33,7 @@ const SignInPage = () => {
         passwordCheck,
         firstName,
         lastName,
-        gender,
         birthday,
-        address,
         phone,
       ].some((value) => !value)
     )
@@ -51,12 +49,13 @@ const SignInPage = () => {
       return;
     }
 
+    // address삭제
     const resp = await fetch(`/register/customer`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      data: JSON.stringify({
+      body: JSON.stringify({
         address,
         birthDate: birthday,
         firstName,
@@ -177,7 +176,7 @@ const SignInPage = () => {
           />
         </div>
 
-        <div>
+        {/* <div>
           주소
           <input
             type='text'
@@ -186,7 +185,7 @@ const SignInPage = () => {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div>
           전화번호
