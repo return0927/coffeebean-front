@@ -23,7 +23,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     async function fetcher() {
-      const response = await fetch(`/products/1${id}`);
+      const response = await fetch(`/products/${id}`);
       const body = await response.json();
       setData(body);
     }
