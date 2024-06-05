@@ -127,20 +127,20 @@ const SignInPage = () => {
           성
           <input
             type='text'
-            name='first_name'
+            name='last_name'
             placeholder={'성'}
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
           />
         </div>
         <div>
           이름
           <input
             type='text'
-            name='last_name'
+            name='first_name'
             placeholder={'이름'}
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
 
