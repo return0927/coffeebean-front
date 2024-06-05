@@ -42,12 +42,13 @@
   width: 1200px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .product_container {
   width: calc(33.333% - 20px); /* Three items per row with some margin */
   margin-bottom: 20px;
+  margin-left: 18px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
