@@ -3,9 +3,9 @@ import styles from './index.module.css';
 import Clickable from '../../components/Clickable';
 
 const selections = Object.freeze({
-  kind: ['Decaffeine', 'Blended', 'Cold Brew'],
+  Process: ['Natural', 'Washed', 'Honey'],
   amount: ['200g', '500g', '1kg'],
-  origin: ['Africa', 'Latin America', 'Asia', 'Pacific'],
+  origin: ['Ethiopia', 'Asia', 'Brazil', 'Colombia', 'Pacific'],
   sort: ['Popularity', 'Lowest Price', 'Highest Price', 'Newest', 'Oldest'],
 });
 
@@ -39,7 +39,7 @@ const selectionBuilder = (
 };
 
 const SearchPage = () => {
-  const [selectedKind, setSelectedKind] = useState(undefined);
+  const [selectedProcess, setSelectedProcess] = useState(undefined);
   const [selectedAmount, setSelectedAmount] = useState(undefined);
   const [selectedOrigin, setSelectedOrigin] = useState(undefined);
   const [selectedSort, setSelectedSort] = useState(4);
@@ -49,7 +49,7 @@ const SearchPage = () => {
   useEffect(() => {
     (async () => {
       const params = [
-        // ['kind', selections.kind[selectedKind]],
+        ['Process', selections.Process[selectedProcess]],
         ['amount', selections.amount[selectedAmount]],
         ['origin', selections.origin[selectedOrigin]],
         ['sort', sortKeyMap[selections.sort[selectedSort]]],
@@ -63,10 +63,10 @@ const SearchPage = () => {
 
       setProducts(payload);
     })();
-  }, [selectedKind, selectedAmount, selectedOrigin, selectedSort]);
+  }, [selectedProcess, selectedAmount, selectedOrigin, selectedSort]);
 
-  const handleKind = (index) => {
-    setSelectedKind((origin) => (origin === index ? undefined : index));
+  const handleProcess = (index) => {
+    setSelectedProcess((origin) => (origin === index ? undefined : index));
   };
 
   const handleAmount = (index) => {
@@ -91,19 +91,19 @@ const SearchPage = () => {
       </div>
 
       <div className={styles.search_container}>
-        <div className={styles.kind}>
-          <p>유형</p>
-          {selectionBuilder(selections.kind, handleKind, selectedKind)}
+        <div className={styles.origin}>
+          <p>원산지</p>
+          {selectionBuilder(selections.origin, handleOrigin, selectedOrigin)}
+        </div>
+
+        <div className={styles.Process}>
+          <p>가공방법</p>
+          {selectionBuilder(selections.Process, handleProcess, selectedProcess)}
         </div>
 
         <div className={styles.amount}>
           <p>용량</p>
           {selectionBuilder(selections.amount, handleAmount, selectedAmount)}
-        </div>
-
-        <div className={styles.origin}>
-          <p>원산지</p>
-          {selectionBuilder(selections.origin, handleOrigin, selectedOrigin)}
         </div>
 
         <div className={styles.sortby}>

@@ -1,10 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../index.css';
 import Clickable from '../../../components/Clickable';
 
 const OrderList = () => {
-  const [loginInfo, setLoginInfo] = useState(undefined);
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    const fetchProductsBySeller = async () => {
+      const resp = await fetch('/api/products/my');
+      const data = await resp.json();
+      // 출력할 제품 정보들
+      const filteredProducts = data.map((product) => ({
+        name: product.name,
+        brandName: product.brandName,
+        origins: product.origins,
+        quantity: product.quantity,
+        price: product.price,
+      }));
+      setProducts(filteredProducts);
+    };
+    fetchProductsBySeller();
+  }, []);
+
+  // 로그인된 경우는 어떻게 설정해야하는지..?
+  const [loginInfo, setLoginInfo] = useState(undefined);
   const myPageBox = loginInfo === undefined;
 
   return (
@@ -36,26 +55,28 @@ const OrderList = () => {
         <div className='Title'>
           <h2>상품 관리</h2> <br />
         </div>
-
         <div>
           <table>
             <thead>
               <tr>
-                <th>제조연월일</th>
-                <th>상품이름</th>
+                <th>제품</th>
+                <th>브랜드이름</th>
                 <th>원산지</th>
                 <th>용량</th>
                 <th>판매가</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>2023/11/11</td>
-                <td>세르메니아 블렌드</td>
-                <td>브라질 50%, 케냐 30%, 아르헨티나 5%</td>
-                <td>100g</td>
-                <td>2021</td>
-              </tr>
+              {/* 판매자의 상품 목록을 표시합니다. */}
+              {products.map((product, idx) => (
+                <tr key={idx}>
+                  <td>{product.name}</td>
+                  <td>{product.brandName}</td>
+                  <td>{product.origins}</td>
+                  <td>{product.quantity}</td>
+                  <td>{product.price}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
