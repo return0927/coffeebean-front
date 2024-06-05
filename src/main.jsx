@@ -7,8 +7,7 @@ import './index.css';
 // Patch fetch API: 기본 api hostname 설정
 const orgFetch = window.fetch;
 window.fetch = (url, ...params) => {
-  if (url.startsWith('/'))
-    return orgFetch(`https://api.coffee.ajou.enak.kr/api${url}`, ...params);
+  if (url.startsWith('/')) return orgFetch(`/api${url}`, ...params);
   return orgFetch(url, ...params);
 };
 
