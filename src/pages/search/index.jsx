@@ -9,6 +9,14 @@ const selections = Object.freeze({
   sort: ['Popularity', 'Lowest Price', 'Highest Price', 'Newest', 'Oldest'],
 });
 
+const sortKeyMap = Object.freeze({
+  Popularity: 'popularity',
+  'Lowest Price': 'LOWEST_PRICE',
+  'Highest Price': 'HIGHEST_PRICE',
+  Newest: 'NEWEST',
+  Oldest: 'OLDEST',
+});
+
 const selectionBuilder = (
   array,
   handler,
@@ -34,18 +42,28 @@ const SearchPage = () => {
   const [selectedKind, setSelectedKind] = useState(undefined);
   const [selectedAmount, setSelectedAmount] = useState(undefined);
   const [selectedOrigin, setSelectedOrigin] = useState(undefined);
-  const [selectedSort, setSelectedSort] = useState(undefined);
+  const [selectedSort, setSelectedSort] = useState(4);
 
   const [products, setProducts] = useState(undefined);
 
   useEffect(() => {
     (async () => {
-      const resp = await fetch(`/products/`);
+      const params = [
+        // ['kind', selections.kind[selectedKind]],
+        ['amount', selections.amount[selectedAmount]],
+        ['origin', selections.origin[selectedOrigin]],
+        ['sort', sortKeyMap[selections.sort[selectedSort]]],
+      ]
+        .filter((v) => v[1] !== undefined)
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&');
+
+      const resp = await fetch(`/products/${params ? `?${params}` : ''}`);
       const payload = await resp.json();
 
       setProducts(payload);
     })();
-  }, []);
+  }, [selectedKind, selectedAmount, selectedOrigin, selectedSort]);
 
   const handleKind = (index) => {
     setSelectedKind((origin) => (origin === index ? undefined : index));
@@ -110,7 +128,7 @@ const SearchPage = () => {
                 <p>{product.brandName}</p>
               </div>
               <div className={styles.product_weight}>
-                <p>200g</p>
+                <p>{product.quantity}g</p>
                 <Clickable href={`/products/${product.productId}`}>
                   <p>+더보기</p>
                 </Clickable>
