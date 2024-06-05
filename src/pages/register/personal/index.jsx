@@ -1,16 +1,83 @@
 import '../index.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import Clickable from '../../../components/Clickable';
+import { handleCustomerLogin } from '../../login/handleLogin';
+import loginState from '../../../state';
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+  const setLoginData = useRecoilState(loginState)[1];
+
+  const [loginId, setLoginId] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordCheck, setPasswordCheck] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [gender, setGender] = useState(0);
+  const [birthday, setBirthday] = useState('2001-01-01');
+  const [address, setAddress] = useState('');
+  const [phone, setPHone] = useState('');
+
   // 다시 로그인 페이지로
   const redirectToLogin = () => {
     window.location.href = '/login';
   };
 
-  // 가입완료페이지
+  const validateInputs = () => {
+    if (
+      [
+        loginId,
+        password,
+        passwordCheck,
+        firstName,
+        lastName,
+        gender,
+        birthday,
+        address,
+        phone,
+      ].some((value) => !value)
+    )
+      return '빈 필드가 있습니다.';
+    if (password !== passwordCheck)
+      return '비밀번호와 비밀번호 확인이 일치하지 않습니다.';
+  };
 
-  const redirectTosuccess = () => {
-    window.location.href = '/register/success';
+  const handleRegister = async () => {
+    const validationMessage = validateInputs();
+    if (validationMessage) {
+      alert(validationMessage);
+      return;
+    }
+
+    const resp = await fetch(`/register/customer`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: JSON.stringify({
+        address,
+        birthDate: birthday,
+        firstName,
+        lastName,
+        loginId,
+        password,
+        phone,
+        gender,
+      }),
+    });
+    const data = await resp.json();
+
+    // if error
+    if (data.error) {
+      const { message } = data;
+      alert(`회원가입 중 오류가 발생했습니다. ${message}`);
+      navigate(0);
+    } else {
+      handleCustomerLogin(data, setLoginData);
+      navigate('/register/success');
+    }
   };
 
   return (
@@ -27,7 +94,13 @@ const SignInPage = () => {
       <div className='SigninContainer'>
         <div>
           아이디
-          <input type='text' name='id' placeholder={'아이디를 입력하세요'} />
+          <input
+            type='text'
+            name='id'
+            placeholder={'아이디를 입력하세요'}
+            value={loginId}
+            onChange={(e) => setLoginId(e.target.value)}
+          />
         </div>
         <div>
           비밀번호
@@ -35,6 +108,8 @@ const SignInPage = () => {
             type='password'
             name='pw'
             placeholder={'비밀번호를 입력하세요'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div>
@@ -43,23 +118,51 @@ const SignInPage = () => {
             type='password'
             name='pw'
             placeholder={'비밀번호를 다시 입력하세요'}
+            value={passwordCheck}
+            onChange={(e) => setPasswordCheck(e.target.value)}
           />
         </div>
 
         <div>
           성
-          <input type='text' name='first_name' placeholder={'성'} />
+          <input
+            type='text'
+            name='first_name'
+            placeholder={'성'}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
         </div>
         <div>
           이름
-          <input type='text' name='last_name' placeholder={'이름'} />
+          <input
+            type='text'
+            name='last_name'
+            placeholder={'이름'}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </div>
 
         <div>성별</div>
 
         <div className='SignInGender'>
-          <input type='radio' name='gender' placeholder='M' /> 남
-          <input type='radio' name='gender' placeholder='F' /> 여
+          <input
+            type='radio'
+            name='gender'
+            placeholder='M'
+            onClick={() => setGender(0)}
+            defaultChecked={gender === 0}
+          />{' '}
+          남
+          <input
+            type='radio'
+            name='gender'
+            placeholder='F'
+            onClick={() => setGender(1)}
+            defaultChecked={gender === 1}
+          />{' '}
+          여
         </div>
 
         <div>
@@ -67,15 +170,22 @@ const SignInPage = () => {
           <input
             type='date'
             name='birthday'
-            value={'2024-05-20'}
             min='1900-01-01'
             max='2025-12-31'
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
           />
         </div>
 
         <div>
           주소
-          <input type='text' name='address' placeholder={'주소를 입력하세요'} />
+          <input
+            type='text'
+            name='address'
+            placeholder={'주소를 입력하세요'}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
         </div>
 
         <div>
@@ -84,6 +194,8 @@ const SignInPage = () => {
             type='text'
             name='phonenumber'
             placeholder={'전화번호를 입력하세요'}
+            value={phone}
+            onChange={(e) => setPHone(e.target.value)}
           />
         </div>
 
@@ -91,7 +203,7 @@ const SignInPage = () => {
           <button
             type='button'
             className='SignInButton'
-            onClick={redirectTosuccess}
+            onClick={handleRegister}
           >
             가입하기
           </button>

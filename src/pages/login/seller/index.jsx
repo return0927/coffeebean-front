@@ -4,10 +4,11 @@ import { useRecoilState } from 'recoil';
 import { useState } from 'react';
 import loginState from '../../../state';
 import MainContainer from '../../../components/MainContainer';
+import { handleSellerLogin } from '../handleLogin';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
-  const [loginData, setLoginData] = useRecoilState(loginState);
+  const setLoginData = useRecoilState(loginState)[1];
 
   const [loginId, setLoginId] = useState('');
   const [password, setPassword] = useState('');
@@ -37,21 +38,7 @@ const SignUpPage = () => {
       alert(`로그인에 실패했습니다. (${message})`);
       navigate(0);
     } else {
-      const { token: tokenData, businessName: name } = data;
-      const { token } = tokenData;
-      const accountType = tokenData.authScope.type;
-
-      setLoginData((before) => {
-        return {
-          ...before,
-          loggedIn: true,
-          accountType,
-          token,
-          meta: {
-            name,
-          },
-        };
-      });
+      const name = handleSellerLogin(data, setLoginData);
 
       alert(`환영합니다, ${name} 님!`);
       navigate('/');
@@ -66,7 +53,7 @@ const SignUpPage = () => {
             <button type='button' className='SignButton_Left'>
               구매자
             </button>
-            <button type='button' className='SignButton_Right'>
+            <button type='button' className='SignButton_Right active'>
               판매자
             </button>
           </div>

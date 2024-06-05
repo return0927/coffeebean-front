@@ -31,8 +31,6 @@
     display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
-    background-color: black;
-    color: #ffffff;
 }
 
 .SignButton_Right{
@@ -47,8 +45,16 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+.button_contain button {
     background-color: #ffffff;
     color: black;
+}
+
+.button_contain button.active {
+    background-color: black;
+    color: #ffffff;
 }
 
 .LogIn_Type{

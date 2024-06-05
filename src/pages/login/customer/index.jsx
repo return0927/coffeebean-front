@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import MainContainer from '../../../components/MainContainer';
 import loginState from '../../../state';
+import { handleCustomerLogin } from '../handleLogin';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -37,24 +38,9 @@ const SignUpPage = () => {
       alert(`로그인에 실패했습니다. (${message})`);
       navigate(0);
     } else {
-      const { token: tokenData, firstName, lastName } = data;
-      const { token } = tokenData;
-      const accountType = tokenData.authScope.type;
-      const name = `${firstName}${lastName}`;
+      const name = handleCustomerLogin(data, setLoginData);
 
-      setLoginData((before) => {
-        return {
-          ...before,
-          loggedIn: true,
-          accountType,
-          token,
-          meta: {
-            name,
-          },
-        };
-      });
-
-      alert(`환영합니다, ${firstName} ${lastName} 님!`);
+      alert(`환영합니다, ${name} 님!`);
       navigate('/');
     }
   };
@@ -64,7 +50,7 @@ const SignUpPage = () => {
       <div className='SignIn_Container'>
         <div className='Sign_IN_Type'>
           <div className='button_contain'>
-            <button type='button' className='SignButton_Left'>
+            <button type='button' className='SignButton_Left active'>
               구매자
             </button>
             <button type='button' className='SignButton_Right'>
