@@ -13,7 +13,7 @@ const formatPrice = (price) => {
 
 const MyPage = () => {
   // const [loginInfo, setLoginInfo] = useState(undefined);
-  const [loginData] = useRecoilState(loginState);
+  const [loginData, setLoginData] = useRecoilState(loginState);
   const { token } = loginData;
   const [orders, setOrders] = useState([]);
 
@@ -34,7 +34,20 @@ const MyPage = () => {
       setOrders(orderLists);
     };
     fetchOrdersByCustomer();
-  }, []);
+  });
+
+  const menuType = {
+    CUSTOMER: (
+      <Clickable href={'/myPage/orderHistory'}>
+        <label className='Main'>주문내역</label>
+      </Clickable>
+    ),
+    SELLER: (
+      <Clickable href={'/partners'}>
+        <label>대시보드</label>
+      </Clickable>
+    ),
+  };
 
   return (
     <div>
@@ -44,9 +57,7 @@ const MyPage = () => {
           <Clickable href={'/mypage'}>
             <label>비밀변호 변경</label>
           </Clickable>
-          <Clickable href={'/myPage/orderHistory'}>
-            <label className='Main'>주문내역</label>
-          </Clickable>
+          {menuType[loginData.accountType]}
           <Clickable href={'/myPage/deleteAccount'}>
             <label>회원탈퇴</label>
           </Clickable>
