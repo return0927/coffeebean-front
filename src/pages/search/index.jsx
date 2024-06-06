@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import styles from './index.module.css';
 import Clickable from '../../components/Clickable';
+import styles from './index.module.css';
 
 const selections = Object.freeze({
   Process: ['Natural', 'Washed', 'Honey'],
@@ -21,12 +21,12 @@ const selectionBuilder = (
   array,
   handler,
   selectedIndex,
-  selectedClass = 'active'
+  selectedClass = styles.active
 ) => {
   return array.map((elem, index) => {
     return (
       <button
-        className={`search_category${index === selectedIndex ? ` ${selectedClass}` : ''}`}
+        className={`${styles.search_category}${index === selectedIndex ? ` ${selectedClass}` : ''}`}
         data-filter={elem}
         key={`${index} ${elem}`}
         onClick={() => handler(index)}

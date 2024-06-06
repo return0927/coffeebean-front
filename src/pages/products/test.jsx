@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import Clickable from '../../components/Clickable';
 import Dropdown from '../../components/dropdown/Dropdown';
 import DropSelection from '../../components/dropdown/DropSelection';
-import './index.css';
+import styles from './index.module.css';
 
 const formatPrice = (price) => {
   if (price >= 1000) {
@@ -15,8 +15,8 @@ const Test = () => {
   const { id } = useParams();
 
   return (
-    <div className='ScsMain' style={{ flexDirection: 'row' }}>
-      <aside className='productImg'>
+    <div className={styles.ScsMain} style={{ flexDirection: 'row' }}>
+      <aside className={styles.productImg}>
         <img
           src='https://img.freepik.com/free-photo/coffee-beans_144627-22481.jpg?t=st=1716689949~exp=1716693549~hmac=6a19a9208ac148ddd47701eeae089a0f600de59f4733f8b0a215d164872cd8ee&w=360'
           width='300'
@@ -25,8 +25,8 @@ const Test = () => {
       </aside>
 
       <div>
-        <div className='contents'>
-          <table className='productDetail'>
+        <div className={styles.contents}>
+          <table className={styles.productDetail}>
             <tr>
               <th>상품ID</th>
               <td>{id}</td>
@@ -96,7 +96,7 @@ const Test = () => {
             </tr>
           </table>
         </div>
-        <div className='button_contain'>
+        <div className={styles.button_contain}>
           <button>
             <Clickable href={`/products/checkout/${id}`}>
               <label style={{ color: '#fff' }}>구매하기</label>

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import './index.css';
 import { useRecoilValue } from 'recoil';
 import { useSearchParams } from 'react-router-dom';
 import Clickable from '../../components/Clickable';
 import loginState from '../../state';
 import MainContainer from '../../components/MainContainer';
-import styles from './success.module.css';
+import a from './index.module.css';
+import b from './success.module.css';
+
+const styles = { ...a, ...b };
 
 const formatPrice = (price) => {
   if (price >= 1000) {
