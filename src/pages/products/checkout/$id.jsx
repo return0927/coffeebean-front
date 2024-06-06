@@ -139,7 +139,9 @@ const OrderPage = () => {
         <section className={styles['order-summary']}>
           <h2>주문상품</h2>
           <div className={styles.product}>
-            <div className={styles['product-image']}></div>
+            <div className={styles['product-image']}>
+              <img src={product.imageUrl}></img>
+            </div>
             <div className={styles['product-info']}>
               <p>{product.name}</p>
               <p>수량 : {amount}개</p>
