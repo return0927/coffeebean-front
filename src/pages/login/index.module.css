@@ -18,7 +18,7 @@
 
 .login-modal .register {
     width: 800px;
-    height: calc(2em * 2);
+    height: 160px;  
 
     font-size: 2em;
     padding-left: 40px;
@@ -31,6 +31,7 @@
 .login-row .seller {
     background-color: black;
     color: white;
+    margin: 0;
 }
 
 .register-row {

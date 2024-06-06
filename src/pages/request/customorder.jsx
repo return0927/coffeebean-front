@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Clickable from '../../components/Clickable';
-import './customorder.css';
+import styles from './customorder.module.css';
 
 const selections = {
   kind: ['Arabica', 'Robusta', 'Liberica'],
@@ -76,8 +76,8 @@ const SearchPage = () => {
   };
 
   return (
-    <div className='MainContainer'>
-      <div className='front_bar'>
+    <div className={styles.MainContainer}>
+      <div className={styles.front_bar}>
         <Clickable href={'recommend/'}>
           <label>Recommend</label>
         </Clickable>
@@ -98,26 +98,26 @@ const SearchPage = () => {
         </Clickable>
       </div>
 
-      <div className='feature_name'>
+      <div className={styles.feature_name}>
         <label>주문제작</label>
       </div>
 
-      <div className='search_container'>
-        <div className='seller'>
+      <div className={styles.search_container}>
+        <div className={styles.seller}>
           <label htmlFor='seller-input'>판매자</label>
           <input type='text' id='seller-input' placeholder='Input text' />
         </div>
 
-        <div className='kind'>
+        <div className={styles.kind}>
           <p>종류</p>
-          <div className='scrollable-container'>
+          <div className={styles['scrollable-container']}>
             {selectionBuilder(selections.kind, handleKind, selectedKind)}
           </div>
         </div>
 
-        <div className='greenkind'>
+        <div className={styles.greenkind}>
           <p>생두</p>
-          <div className='scrollable-container'>
+          <div className={styles['scrollable-container']}>
             {selectionBuilder(
               selections.greenkind,
               handleGreenkind,
@@ -126,23 +126,23 @@ const SearchPage = () => {
           </div>
         </div>
 
-        <div className='amount'>
+        <div className={styles.amount}>
           <p>용량</p>
-          <div className='scrollable-container'>
+          <div className={styles['scrollable-container']}>
             {selectionBuilder(selections.amount, handleAmount, selectedAmount)}
           </div>
         </div>
 
-        <div className='origin'>
+        <div className={styles.origin}>
           <p>원산지</p>
-          <div className='scrollable-container'>
+          <div className={styles['scrollable-container']}>
             {selectionBuilder(selections.origin, handleOrigin, selectedOrigin)}
           </div>
         </div>
 
-        <div className='roasting'>
+        <div className={styles.roasting}>
           <p>로스팅</p>
-          <div className='scrollable-container'>
+          <div className={styles['scrollable-container']}>
             {selectionBuilder(
               selections.roasting,
               handleRoasting,
@@ -151,21 +151,21 @@ const SearchPage = () => {
           </div>
         </div>
 
-        <div className='grind'>
+        <div className={styles.grind}>
           <p>분쇄도</p>
-          <div className='scrollable-container'>
+          <div className={styles['scrollable-container']}>
             {selectionBuilder(selections.grind, handleGrind, selectedGrind)}
           </div>
         </div>
 
-        <div className='price'>
+        <div className={styles.price}>
           <label htmlFor='price-input'>가격제안 (원)</label>
           <input type='text' id='price-input' placeholder='숫자를 입력하세요' />
         </div>
 
-        <div className='button-container'>
-          <button className='custom-button'>신청</button>
-          <button className='custom-button'>취소</button>
+        <div className={styles['button-container']}>
+          <button className={styles['custom-button']}>신청</button>
+          <button className={styles['custom-button']}>취소</button>
         </div>
       </div>
     </div>
