@@ -1,12 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css';
+import { useRecoilState } from 'recoil';
 import Clickable from '../../components/Clickable';
+import loginState from '../../state';
 
 const OrderList = () => {
-  const [loginInfo, setLoginInfo] = useState(undefined);
+  // const [loginInfo, setLoginInfo] = useState(undefined);
+  const [loginData, setLoginData] = useRecoilState(loginState);
+  const [orders, setOrders] = useState([]);
 
-  const myPageBox = loginInfo === undefined;
+  useEffect(() => {
+    const fetchOrdersBySeller = async () => {
+      const resp = await fetch('/api/orders/');
+      const data = await resp.json();
+      // 출력할 주문 정보들
+      const orderLists = data.map((order) => ({
+        amount: order.amount,
+        orderid: order.orderid,
+        price: order.price,
+        recipient: order.recipient,
+        status: order.status,
+      }));
+      setOrders(orderLists);
+    };
+    fetchOrdersBySeller();
+  }, []);
 
+  // const myPageBox = loginInfo === undefined;
+
+  if (orders === undefined) return <>Loading...</>;
+  if (loginData.loggedIn !== true || loginData.accountType !== 'PRODUCER')
+    return <>판매자 로그인을 해주세요</>;
   return (
     <div>
       <div className='sidebar'>
@@ -50,25 +74,11 @@ const OrderList = () => {
             </thead>
             <tbody>
               <tr>
-                <td>101010</td>
-                <td>20202020202020</td>
-                <td>1</td>
-                <td>test</td>
-                <td>2024-05-20</td>
-              </tr>
-              <tr>
-                <td>101010</td>
-                <td>20202020202020</td>
-                <td>1</td>
-                <td>test</td>
-                <td>2024-05-20</td>
-              </tr>
-              <tr>
-                <td>101010</td>
-                <td>20202020202020</td>
-                <td>1</td>
-                <td>test</td>
-                <td>2024-05-20</td>
+                <td>{orders.orderid}</td>
+                <td>{orders.recipient}</td>
+                <td>{orders.price}</td>
+                <td>{orders.amount}</td>
+                <td>{orders.status}</td>
               </tr>
             </tbody>
           </table>
