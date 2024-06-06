@@ -28,7 +28,7 @@ const ProductDetail = () => {
 
   // 결제 완료 페이지로 이동 (동일한 결제 완료 페이지로 이동)
   const orderPage = () => {
-    window.location.href = `/products/checkout/${id}`;
+    window.location.href = `/products/checkout/${id}?quantity=${quantity}`;
   };
 
   const handleQuantityChange = (amount) => {
