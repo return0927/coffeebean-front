@@ -7,7 +7,7 @@ const SubMenuBar = ({ accountType }) => {
         <label className='Main'>주문내역</label>
       </Clickable>
     ) : (
-      <Clickable href={'/partners'}>
+      <Clickable href={'/partners/myProducts'}>
         <label className='Main'>대시보드</label>
       </Clickable>
     );
