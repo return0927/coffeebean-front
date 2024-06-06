@@ -103,7 +103,7 @@ const OrderPage = () => {
   return (
     <div className={styles['order-page']}>
       <main>
-        <h1>주문/결제 - Order ID: {id}</h1>
+        <h1>주문/결제</h1>
         <section className={styles['shipping-info']}>
           <h2>배송지 입력</h2>
           <form>
@@ -148,7 +148,6 @@ const OrderPage = () => {
               <p>{(product.price * amount).toLocaleString()}원</p>
             </div>
           </div>
-          <div className={styles['shipping-fee']}>배송비 3000원</div>
         </section>
         <section className={styles['payment-info']}>
           <h2>결제정보</h2>
