@@ -12,7 +12,7 @@ const OrderList = () => {
 
   useEffect(() => {
     const fetchOrdersBySeller = async () => {
-      const resp = await fetch('/api/orders/', { token });
+      const resp = await fetch('/orders/', { token });
       const data = await resp.json();
 
       if (data.error) {
@@ -23,7 +23,7 @@ const OrderList = () => {
       // 출력할 주문 정보들
       const orderLists = data.map((order) => ({
         amount: order.amount,
-        orderid: order.orderid,
+        orderId: order.orderId,
         price: order.price,
         recipient: order.recipient,
         status: order.status,
@@ -36,7 +36,7 @@ const OrderList = () => {
   // const myPageBox = loginInfo === undefined;
 
   if (orders === undefined) return <>Loading...</>;
-  if (loginData.loggedIn !== true || loginData.accountType !== 'PRODUCER')
+  if (loginData.loggedIn !== true || loginData.accountType !== 'SELLER')
     return <>판매자 로그인을 해주세요</>;
   return (
     <div>
@@ -80,13 +80,16 @@ const OrderList = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{orders.orderid}</td>
-                <td>{orders.recipient}</td>
-                <td>{orders.price}</td>
-                <td>{orders.amount}</td>
-                <td>{orders.status}</td>
-              </tr>
+              {orders &&
+                orders.map((order) => (
+                  <tr key={order.orderId}>
+                    <td>{order.orderId}</td>
+                    <td>{order.recipient}</td>
+                    <td>{order.price}</td>
+                    <td>{order.amount}</td>
+                    <td>{order.status}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
