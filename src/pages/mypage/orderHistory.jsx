@@ -54,12 +54,13 @@ const MyPage = () => {
             <thead>
               <tr>
                 <th>주문번호</th>
-                <th>상품정보</th>
+                <th>수취인</th>
                 <th>주문상태</th>
                 <th>수량</th>
                 <th>금액</th>
               </tr>
             </thead>
+
             <tbody>
               {orders &&
                 orders.map((order) => (

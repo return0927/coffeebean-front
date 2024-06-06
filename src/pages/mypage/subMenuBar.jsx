@@ -1,4 +1,5 @@
 import Clickable from '../../components/Clickable';
+import './subMenuBar.css';
 
 const SubMenuBar = ({ accountType }) => {
   const middleMenu =
@@ -15,7 +16,7 @@ const SubMenuBar = ({ accountType }) => {
   return (
     <div className='frontBar'>
       <Clickable href={'/mypage'}>
-        <label>비밀변호 변경</label>
+        <label className='Main'>비밀변호 변경</label>
       </Clickable>
 
       {middleMenu}
