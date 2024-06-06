@@ -21,7 +21,7 @@ const MyPage = () => {
 
   useEffect(() => {
     const fetchOrdersByCustomer = async () => {
-      const resp = await fetch('orders/', { token });
+      const resp = await fetch('/orders/', { token });
       const data = await resp.json();
 
       if (data.error) {
@@ -32,7 +32,7 @@ const MyPage = () => {
       // 출력할 주문 정보들
       const orderLists = data.map((order) => ({
         amount: order.amount,
-        orderid: order.orderid,
+        orderId: order.orderId,
         price: order.price,
         recipient: order.recipient,
         status: order.status,
@@ -81,13 +81,16 @@ const MyPage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{orders.orderid}</td>
-                <td>{orders.recipient}</td>
-                <td>{orders.status}</td>
-                <td>{orders.amount}</td>
-                <td>{formatPrice(orders.price)}</td>
-              </tr>
+              {orders &&
+                orders.map((order) => (
+                  <tr key={order.orderId}>
+                    <td>{order.orderId}</td>
+                    <td>{order.recipient}</td>
+                    <td>{order.status}</td>
+                    <td>{order.amount}</td>
+                    <td>{formatPrice(order.price)}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
