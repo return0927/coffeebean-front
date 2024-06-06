@@ -21,8 +21,14 @@ const MyPage = () => {
 
   useEffect(() => {
     const fetchOrdersByCustomer = async () => {
-      const resp = await fetch('/api/orders/', { token });
+      const resp = await fetch('orders/', { token });
       const data = await resp.json();
+
+      if (data.error) {
+        const { message } = data;
+        alert(`데이터 불러오기에 실패했습니다. (${message})`);
+      }
+
       // 출력할 주문 정보들
       const orderLists = data.map((order) => ({
         amount: order.amount,
@@ -34,7 +40,7 @@ const MyPage = () => {
       setOrders(orderLists);
     };
     fetchOrdersByCustomer();
-  });
+  }, [token]);
 
   const menuType = {
     CUSTOMER: (
@@ -44,7 +50,7 @@ const MyPage = () => {
     ),
     SELLER: (
       <Clickable href={'/partners'}>
-        <label>대시보드</label>
+        <label className='Main'>대시보드</label>
       </Clickable>
     ),
   };

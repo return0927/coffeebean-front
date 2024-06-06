@@ -11,6 +11,14 @@ const OrderPage = () => {
     setIsChecked(!isChecked);
   };
 
+  const cancel = () => {
+    window.location.href = `/products/${id}`;
+  };
+
+  const success = () => {
+    window.location.href = `../success`;
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isChecked) {
@@ -407,8 +415,12 @@ const OrderPage = () => {
             </form>
           </div>
           <div className={styles.buttons}>
-            <button type='button'>취소하기</button>
-            <button type='button'>결제하기</button>
+            <button type='button' onClick={cancel}>
+              취소하기
+            </button>
+            <button type='button' onClick={success}>
+              결제하기
+            </button>
           </div>
         </section>
       </main>
