@@ -3,6 +3,7 @@ import '../index.css';
 import { useRecoilState } from 'recoil';
 import Clickable from '../../../components/Clickable';
 import loginState from '../../../state';
+import LeftMenuBar from '../leftMenuBar';
 
 const OrderList = () => {
   const [loginData] = useRecoilState(loginState);
@@ -32,28 +33,7 @@ const OrderList = () => {
 
   return (
     <div>
-      <div className='sidebar'>
-        <nav className='main-nav'>
-          <h3>Menu</h3>
-          <ul>
-            <li>
-              <Clickable href={'/partners/myProducts'}>
-                <i className='fa-solid fa-shop'></i> 상품 관리
-              </Clickable>
-            </li>
-            <li>
-              <Clickable href={'/partners/orders'}>
-                <i className='fa-solid list-check fa-list-check'></i> 주문 관리
-              </Clickable>
-            </li>
-            <li>
-              <Clickable href={'/partners/requests'}>
-                <i className='fa-regular fa-comment-dots'></i> 주문제작 관리
-              </Clickable>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <LeftMenuBar />
 
       <div className='MainItem'>
         <div className='Title'>

@@ -2,11 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './id.module.css';
 
-// 결제 완료 페이지로 이동 (동일한 결제 완료 페이지로 이동)
-const SuccessPage = () => {
-  window.location.href = '/products/success';
-};
-
 // 1000단위로 표시하는 함수
 const formatPrice = (price) => {
   if (price >= 1000) {
@@ -30,6 +25,11 @@ const ProductDetail = () => {
 
     fetcher();
   }, [id]);
+
+  // 결제 완료 페이지로 이동 (동일한 결제 완료 페이지로 이동)
+  const orderPage = () => {
+    window.location.href = `/products/checkout/${id}`;
+  };
 
   const handleQuantityChange = (amount) => {
     setQuantity((prev) => Math.max(1, prev + amount));
@@ -64,7 +64,7 @@ const ProductDetail = () => {
           </li>
           <li>판매가: {formatPrice(data.price * quantity)}원</li>
         </ul>
-        <button className={styles['buy-button']} onClick={SuccessPage}>
+        <button className={styles['buy-button']} onClick={orderPage}>
           BUY
         </button>
       </div>
