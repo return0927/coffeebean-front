@@ -15,7 +15,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ''),
         changeOrigin: true,
         target:
-          process.env.NODE_ENV === 'dev'
+          process.env.NODE_ENV === 'local'
             ? 'http://localhost:8080/api'
             : 'https://api.coffee.ajou.enak.kr/api',
       },
