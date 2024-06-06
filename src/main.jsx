@@ -9,7 +9,8 @@ const orgFetch = window.fetch;
 window.fetch = (url, init) => {
   // eslint-disable-next-line no-restricted-globals
   const isSecured = location.protocol === 'https:';
-  const apiHost = isSecured ? 'https://api.coffee.ajou.enak.kr/api' : '/api';
+  // const apiHost = isSecured ? 'https://api.coffee.ajou.enak.kr/api' : '/api';
+  const apiHost = '/api';
 
   // eslint-disable-next-line prefer-const
   let { headers, ...params } = init || {};
