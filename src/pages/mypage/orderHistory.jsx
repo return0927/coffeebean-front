@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import './index.css';
 import Clickable from '../../components/Clickable';
+import loginState from '../../state';
+import SubMenuBar from './subMenuBar';
 
 const formatPrice = (price) => {
   if (price >= 1000) {
@@ -10,25 +13,41 @@ const formatPrice = (price) => {
 };
 
 const MyPage = () => {
-  const [loginInfo, setLoginInfo] = useState(undefined);
+  // const [loginInfo, setLoginInfo] = useState(undefined);
+  const [loginData, setLoginData] = useRecoilState(loginState);
+  const { token } = loginData;
+  const [orders, setOrders] = useState([]);
 
-  const myPageBox = loginInfo === undefined;
+  // const myPageBox = loginInfo === undefined;
+
+  useEffect(() => {
+    const fetchOrdersByCustomer = async () => {
+      const resp = await fetch('/orders/', { token });
+      const data = await resp.json();
+
+      if (data.error) {
+        const { message } = data;
+        alert(`데이터 불러오기에 실패했습니다. (${message})`);
+      }
+
+      // 출력할 주문 정보들
+      const orderLists = data.map((order) => ({
+        amount: order.amount,
+        orderId: order.orderId,
+        price: order.price,
+        recipient: order.recipient,
+        status: order.status,
+      }));
+      setOrders(orderLists);
+    };
+    fetchOrdersByCustomer();
+  }, [token]);
 
   return (
     <div>
       <div className='MainContents'>
         <h2>마이페이지</h2>
-        <div className='frontBar'>
-          <Clickable href={'/mypage'}>
-            <label>비밀변호 변경</label>
-          </Clickable>
-          <Clickable href={'/myPage/orderHistory'}>
-            <label className='Main'>주문내역</label>
-          </Clickable>
-          <Clickable href={'/myPage/deleteAccount'}>
-            <label>회원탈퇴</label>
-          </Clickable>
-        </div>
+        <SubMenuBar accountType={loginData.accountType} />
         <br /> <br />
         <div>
           <table>
@@ -42,13 +61,16 @@ const MyPage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>101010</td>
-                <td>세르메니아 블렌드 200g</td>
-                <td>대기중</td>
-                <td>3</td>
-                <td>{formatPrice(20000)}</td>
-              </tr>
+              {orders &&
+                orders.map((order) => (
+                  <tr key={order.orderId}>
+                    <td>{order.orderId}</td>
+                    <td>{order.recipient}</td>
+                    <td>{order.status}</td>
+                    <td>{order.amount}</td>
+                    <td>{formatPrice(order.price)}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

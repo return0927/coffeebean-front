@@ -1,28 +1,17 @@
-import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import './index.css';
 import Clickable from '../../components/Clickable';
+import loginState from '../../state';
+import SubMenuBar from './subMenuBar';
 
 const MyPage = () => {
-  const [loginInfo, setLoginInfo] = useState(undefined);
-
-  const myPageBox = loginInfo === undefined;
+  const loginData = useRecoilValue(loginState);
 
   return (
     <div>
       <div className='MainContents'>
         <h2>마이페이지</h2>
-
-        <div className='frontBar'>
-          <Clickable href={'/mypage'}>
-            <label className='Main'>비밀변호 변경</label>
-          </Clickable>
-          <Clickable href={'/myPage/orderHistory'}>
-            <label>주문내역</label>
-          </Clickable>
-          <Clickable href={'/myPage/deleteAccount'}>
-            <label>회원탈퇴</label>
-          </Clickable>
-        </div>
+        <SubMenuBar accountType={loginData.accountType} />
 
         <div className='forms'>
           <div>
