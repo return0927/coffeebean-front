@@ -14,6 +14,8 @@ const OrderList = () => {
     const fetchOrdersBySeller = async () => {
       const resp = await fetch('/api/orders/', { token });
       const data = await resp.json();
+      // console.log('Response:', resp);
+      // console.log('Data:', data);
 
       if (data.error) {
         const { message } = data;
@@ -21,14 +23,15 @@ const OrderList = () => {
       }
 
       // 출력할 주문 정보들
+      /*
       const orderLists = data.map((order) => ({
         amount: order.amount,
         orderid: order.orderid,
         price: order.price,
         recipient: order.recipient,
         status: order.status,
-      }));
-      setOrders(orderLists);
+      })); */
+      setOrders(data);
     };
     fetchOrdersBySeller();
   }, [token]);
@@ -36,8 +39,8 @@ const OrderList = () => {
   // const myPageBox = loginInfo === undefined;
 
   if (orders === undefined) return <>Loading...</>;
-  if (loginData.loggedIn !== true || loginData.accountType !== 'PRODUCER')
-    return <>판매자 로그인을 해주세요</>;
+  //  if (loginData.accountType !== 'PRODUCER')
+  //    return <>판매자 로그인을 해주세요</>;
   return (
     <div>
       <div className='sidebar'>

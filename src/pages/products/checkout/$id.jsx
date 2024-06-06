@@ -1,9 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import styles from './orderpage.module.css';
+import loginState from '../../../state';
 
 const OrderPage = () => {
   const { id } = useParams();
+  const [loginData, setLoginData] = useRecoilState(loginState);
+
+  const [amount, setAmount] = useState(0);
+  const [deliverAddress, setDeliverAddress] = useState('');
+  const [itemId, setItemId] = useState(0);
+  const [recipient, setRecipient] = useState('string');
+
+  const fetchServerData = async () => {
+    const resp = await fetch(`/api/orders/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        amount,
+        deliverAddress,
+        itemId,
+        recipient,
+      }),
+    });
+    const data = await resp.json();
+
+    if (data.error) {
+      const { message } = data;
+      alert(`정확한 폼을 작성해주세요. ${message}`);
+    }
+  };
+
+  useEffect(() => {
+    fetchServerData();
+  }, [id]);
 
   const [isChecked, setIsChecked] = useState(false);
 
@@ -37,7 +70,7 @@ const OrderPage = () => {
           <form>
             <div className={styles['form-group']}>
               <label>받는사람</label>
-              <input type='text' placeholder='Input text' />
+              <input type='text' value={recipient} placeholder='Input text' />
             </div>
             <div className={styles['form-group']}>
               <label>주소</label>

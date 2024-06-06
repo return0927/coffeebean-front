@@ -19,26 +19,27 @@ const MyPage = () => {
 
   // const myPageBox = loginInfo === undefined;
 
+  const fetchOrdersByCustomer = async () => {
+    const resp = await fetch('orders/', { token });
+    const data = await resp.json();
+
+    if (data.error) {
+      const { message } = data;
+      alert(`데이터 불러오기에 실패했습니다. (${message})`);
+    }
+
+    // 출력할 주문 정보들
+    const orderLists = data.map((order) => ({
+      amount: order.amount,
+      orderid: order.orderid,
+      price: order.price,
+      recipient: order.recipient,
+      status: order.status,
+    }));
+    setOrders(orderLists);
+  };
+
   useEffect(() => {
-    const fetchOrdersByCustomer = async () => {
-      const resp = await fetch('orders/', { token });
-      const data = await resp.json();
-
-      if (data.error) {
-        const { message } = data;
-        alert(`데이터 불러오기에 실패했습니다. (${message})`);
-      }
-
-      // 출력할 주문 정보들
-      const orderLists = data.map((order) => ({
-        amount: order.amount,
-        orderid: order.orderid,
-        price: order.price,
-        recipient: order.recipient,
-        status: order.status,
-      }));
-      setOrders(orderLists);
-    };
     fetchOrdersByCustomer();
   }, [token]);
 
