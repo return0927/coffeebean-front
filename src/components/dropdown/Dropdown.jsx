@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import './dropdown.css';
 
-const Dropdown = ({ onToggle, onSelect, children }) => {
+const Dropdown = ({ initSelection, onToggle, onSelect, children }) => {
   const selections = Array.from(children).map((e) => e.props.children);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(selections[0]);
+  const [selectedItem, setSelectedItem] = useState(
+    initSelection || selections[0]
+  );
 
   const toggleDropdown = () => {
     if (onToggle) onToggle(!isOpen);
