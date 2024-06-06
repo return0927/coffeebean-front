@@ -37,7 +37,7 @@ const SignInPage = () => {
         birthday,
         address,
         phone,
-      ].some((value) => !value)
+      ].some((value) => value === undefined)
     )
       return '빈 필드가 있습니다.';
     if (password !== passwordCheck)
@@ -56,7 +56,7 @@ const SignInPage = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: JSON.stringify({
+      body: JSON.stringify({
         address,
         birthDate: birthday,
         firstName,
