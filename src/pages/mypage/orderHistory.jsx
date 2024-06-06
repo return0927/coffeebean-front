@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
 import './index.css';
 import Clickable from '../../components/Clickable';
+import loginState from '../../state';
 
 const formatPrice = (price) => {
   if (price >= 1000) {
@@ -10,9 +12,29 @@ const formatPrice = (price) => {
 };
 
 const MyPage = () => {
-  const [loginInfo, setLoginInfo] = useState(undefined);
+  // const [loginInfo, setLoginInfo] = useState(undefined);
+  const [loginData] = useRecoilState(loginState);
+  const { token } = loginData;
+  const [orders, setOrders] = useState([]);
 
-  const myPageBox = loginInfo === undefined;
+  // const myPageBox = loginInfo === undefined;
+
+  useEffect(() => {
+    const fetchOrdersByCustomer = async () => {
+      const resp = await fetch('/api/orders/', { token });
+      const data = await resp.json();
+      // 출력할 주문 정보들
+      const orderLists = data.map((order) => ({
+        amount: order.amount,
+        orderid: order.orderid,
+        price: order.price,
+        recipient: order.recipient,
+        status: order.status,
+      }));
+      setOrders(orderLists);
+    };
+    fetchOrdersByCustomer();
+  }, []);
 
   return (
     <div>
@@ -43,11 +65,11 @@ const MyPage = () => {
             </thead>
             <tbody>
               <tr>
-                <td>101010</td>
-                <td>세르메니아 블렌드 200g</td>
-                <td>대기중</td>
-                <td>3</td>
-                <td>{formatPrice(20000)}</td>
+                <td>{orders.orderid}</td>
+                <td>{orders.recipient}</td>
+                <td>{orders.status}</td>
+                <td>{orders.amount}</td>
+                <td>{formatPrice(orders.price)}</td>
               </tr>
             </tbody>
           </table>

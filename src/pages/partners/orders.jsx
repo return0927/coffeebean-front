@@ -7,11 +7,12 @@ import loginState from '../../state';
 const OrderList = () => {
   // const [loginInfo, setLoginInfo] = useState(undefined);
   const [loginData, setLoginData] = useRecoilState(loginState);
+  const { token } = loginData;
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const fetchOrdersBySeller = async () => {
-      const resp = await fetch('/api/orders/');
+      const resp = await fetch('/api/orders/', { token });
       const data = await resp.json();
       // 출력할 주문 정보들
       const orderLists = data.map((order) => ({
@@ -24,7 +25,7 @@ const OrderList = () => {
       setOrders(orderLists);
     };
     fetchOrdersBySeller();
-  }, []);
+  });
 
   // const myPageBox = loginInfo === undefined;
 
