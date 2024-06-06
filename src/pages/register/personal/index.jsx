@@ -56,7 +56,7 @@ const SignInPage = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: JSON.stringify({
+      body: JSON.stringify({
         address,
         birthDate: birthday,
         firstName,

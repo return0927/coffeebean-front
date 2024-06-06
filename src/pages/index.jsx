@@ -68,11 +68,11 @@ const IndexPage = () => {
             ></img>
           </div>
           <div className='product_info'>
-            <p>Latin Africa Blend</p>
-            <p>better_shop</p>
+            <p>원두커피</p>
+            <p>이디야 커피</p>
           </div>
           <div className='product_weight'>
-            <p>500g</p>
+            <p>1000g</p>
             <Clickable href={'products/2'}>
               <p>+더보기</p>
             </Clickable>

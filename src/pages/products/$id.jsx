@@ -34,7 +34,7 @@ const ProductDetail = () => {
   const handleQuantityChange = (amount) => {
     setQuantity((prev) => Math.max(1, prev + amount));
   };
-
+  console.log(data);
   if (data === undefined) return <>Loading...</>;
   return (
     <div className={styles['product-detail-container']}>
