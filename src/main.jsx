@@ -7,6 +7,10 @@ import './index.css';
 // Patch fetch API: 기본 api hostname 설정
 const orgFetch = window.fetch;
 window.fetch = (url, init) => {
+  // eslint-disable-next-line no-restricted-globals
+  const isSecured = location.protocol === 'https:';
+  const apiHost = isSecured ? 'https://api.coffee.ajou.enak.kr/api' : '/api';
+
   // eslint-disable-next-line prefer-const
   let { headers, ...params } = init || {};
   headers = { ...(headers || {}) };
@@ -15,7 +19,7 @@ window.fetch = (url, init) => {
   if (token) headers = { ...headers, Authorization: `Bearer ${token}` };
 
   if (url.startsWith('/'))
-    return orgFetch(`/api${url}`, { headers, ...params });
+    return orgFetch(`${apiHost}${url}`, { headers, ...params });
   return orgFetch(url, ...params);
 };
 
