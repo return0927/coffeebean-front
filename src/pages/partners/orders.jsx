@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import Clickable from '../../components/Clickable';
 import loginState from '../../state';
 import LeftMenuBar from './leftMenuBar';
+import { SHIP_STATUS } from '../../consts/order';
 
 const OrderList = () => {
   // const [loginInfo, setLoginInfo] = useState(undefined);
@@ -68,9 +69,9 @@ const OrderList = () => {
                   <tr key={order.orderId}>
                     <td>{order.orderId}</td>
                     <td>{order.recipient}</td>
-                    <td>{order.price}</td>
+                    <td>{(order.price * order.amount).toLocaleString()}</td>
                     <td>{order.amount}</td>
-                    <td>{order.status}</td>
+                    <td>{SHIP_STATUS[order.status]}</td>
                   </tr>
                 ))}
             </tbody>

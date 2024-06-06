@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import './index.css';
-import Clickable from '../../components/Clickable';
 import loginState from '../../state';
 import SubMenuBar from './subMenuBar';
+import { SHIP_STATUS } from '../../consts/order';
+import './index.css';
 
 const formatPrice = (price) => {
   if (price >= 1000) {
@@ -66,9 +66,9 @@ const MyPage = () => {
                   <tr key={order.orderId}>
                     <td>{order.orderId}</td>
                     <td>{order.recipient}</td>
-                    <td>{order.status}</td>
+                    <td>{SHIP_STATUS[order.status]}</td>
                     <td>{order.amount}</td>
-                    <td>{formatPrice(order.price)}</td>
+                    <td>{formatPrice(order.price * order.amount)}</td>
                   </tr>
                 ))}
             </tbody>
