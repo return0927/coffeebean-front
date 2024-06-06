@@ -14,6 +14,8 @@ const OrderList = () => {
     const fetchOrdersBySeller = async () => {
       const resp = await fetch('/orders/', { token });
       const data = await resp.json();
+      // console.log('Response:', resp);
+      // console.log('Data:', data);
 
       if (data.error) {
         const { message } = data;
@@ -21,14 +23,15 @@ const OrderList = () => {
       }
 
       // 출력할 주문 정보들
+      /*
       const orderLists = data.map((order) => ({
         amount: order.amount,
         orderId: order.orderId,
         price: order.price,
         recipient: order.recipient,
         status: order.status,
-      }));
-      setOrders(orderLists);
+      })); */
+      setOrders(data);
     };
     fetchOrdersBySeller();
   }, [token]);
