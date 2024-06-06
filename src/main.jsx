@@ -6,8 +6,16 @@ import './index.css';
 
 // Patch fetch API: 기본 api hostname 설정
 const orgFetch = window.fetch;
-window.fetch = (url, ...params) => {
-  if (url.startsWith('/')) return orgFetch(`/api${url}`, ...params);
+window.fetch = (url, init) => {
+  // eslint-disable-next-line prefer-const
+  let { headers, ...params } = init || {};
+  headers = { ...(headers || {}) };
+
+  const { token } = params;
+  if (token) headers = { ...headers, Authorization: `Bearer ${token}` };
+
+  if (url.startsWith('/'))
+    return orgFetch(`/api${url}`, { headers, ...params });
   return orgFetch(url, ...params);
 };
 

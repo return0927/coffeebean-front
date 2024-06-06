@@ -74,14 +74,14 @@
     border-bottom: 2px solid #d2d2d2;
 }
 
-.kind, .amount, .origin, .sortby {
+.Process, .amount, .origin, .sortby {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.kind p, .amount p, .origin p, .sortby p {
+.Process p, .amount p, .origin p, .sortby p {
     margin-right: 10px;
     font-weight: bold;
     font-size: 20px;

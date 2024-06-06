@@ -21,14 +21,6 @@ const addproducts = () => {
           />
         </div>
         <div>
-          제조연월일
-          <input
-            type='text'
-            name='date'
-            placeholder={'제조연월일을 입력하세요'}
-          />
-        </div>
-        <div>
           원산지
           <input
             type='text'
@@ -49,11 +41,11 @@ const addproducts = () => {
           <label> top_seller</label>
         </div>
         <div>
-          로스팅
+          가공방식
           <input
             type='text'
-            name='roasting'
-            placeholder={'로스팅 방식을 입력하세요'}
+            name='processing'
+            placeholder={'가공 방식을 입력하세요'}
           />
         </div>
         <div>
@@ -65,11 +57,11 @@ const addproducts = () => {
           />
         </div>
         <div>
-          개수
+          할인율
           <input
             type='text'
-            name='grinding'
-            placeholder={'분쇄도를 입력하세요'}
+            name='discount'
+            placeholder={'할인율을 입력하세요'}
           />
         </div>
         <div>
