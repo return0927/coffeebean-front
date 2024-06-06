@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import Clickable from './Clickable';
 import './TopMenu.css';
 import loginState from '../state';
-import { useRecoilValue } from 'recoil';
 
 const TopMenu = () => {
   const loginData = useRecoilValue(loginState);

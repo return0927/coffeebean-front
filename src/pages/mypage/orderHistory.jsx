@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import './index.css';
 import Clickable from '../../components/Clickable';
 import loginState from '../../state';
+import SubMenuBar from './subMenuBar';
 
 const formatPrice = (price) => {
   if (price >= 1000) {
@@ -42,32 +43,11 @@ const MyPage = () => {
     fetchOrdersByCustomer();
   }, [token]);
 
-  const menuType = {
-    CUSTOMER: (
-      <Clickable href={'/myPage/orderHistory'}>
-        <label className='Main'>주문내역</label>
-      </Clickable>
-    ),
-    SELLER: (
-      <Clickable href={'/partners'}>
-        <label className='Main'>대시보드</label>
-      </Clickable>
-    ),
-  };
-
   return (
     <div>
       <div className='MainContents'>
         <h2>마이페이지</h2>
-        <div className='frontBar'>
-          <Clickable href={'/mypage'}>
-            <label>비밀변호 변경</label>
-          </Clickable>
-          {menuType[loginData.accountType]}
-          <Clickable href={'/myPage/deleteAccount'}>
-            <label>회원탈퇴</label>
-          </Clickable>
-        </div>
+        <SubMenuBar accountType={loginData.accountType} />
         <br /> <br />
         <div>
           <table>

@@ -1,16 +1,11 @@
-import { useState } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import './index.css';
 import Clickable from '../../components/Clickable';
 import loginState from '../../state';
+import SubMenuBar from './subMenuBar';
 
 const DeleteAccount = () => {
-  // const [loginInfo, setLoginInfo] = useState(undefined);
-  const [loginData, setLoginData] = useRecoilState(loginState);
-  const { token } = loginData;
-  const [orders, setOrders] = useState([]);
-
-  // const myPageBox = loginInfo === undefined;
+  const loginData = useRecoilValue(loginState);
 
   const menuType = {
     CUSTOMER: (
@@ -29,16 +24,7 @@ const DeleteAccount = () => {
     <div>
       <div className='MainContents'>
         <h2>마이페이지</h2>
-
-        <div className='frontBar'>
-          <Clickable href={'/mypage'}>
-            <label>비밀변호 변경</label>
-          </Clickable>
-          {menuType[loginData.accountType]}
-          <Clickable href={'/myPage/deleteAccount'}>
-            <label className='Main'>회원탈퇴</label>
-          </Clickable>
-        </div>
+        <SubMenuBar accountType={loginData.accountType} />
 
         <div className='forms'>
           <div>
